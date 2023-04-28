@@ -26,7 +26,7 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="tsJ-8Y-t7y">
                                 <rect key="frame" x="96.666666666666686" y="326" width="200" height="200"/>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" text="Cheli" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="p4s-sU-c6O">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" text="Cheli Test" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="p4s-sU-c6O">
                                 <rect key="frame" x="133" y="554" width="126" height="128"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <rect key="contentStretch" x="0.0" y="0.0" width="0.34999999999999998" height="1"/>
