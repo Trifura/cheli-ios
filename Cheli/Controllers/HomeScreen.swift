@@ -14,8 +14,13 @@ struct HomeScreen: View {
         ScrollView {
             VStack {
                 TitleView()
-                
+                .padding(.top, 16)
+                .padding(.bottom, 24)
+                CheliActiveChallenge()
+                MyFeedView()
+                    
                 LazyVStack(spacing: 20) {
+                    //start
                     ForEach(0..<10) { _ in
                         CheliItemView(icon: emoji.randomElement() ?? "🥰", title: "Build a Snowman With a Bunch of Your Friends In an Hour")
                     }
@@ -28,7 +33,7 @@ struct HomeScreen: View {
     
     @ViewBuilder
     func CheliItemView(icon: String, title: String) -> some View {
-        VStack(alignment: .leading, spacing: 10) {
+        VStack(alignment: .leading, spacing: 10){ 
             Rectangle()
                 .fill(colors.randomElement() ?? .purple)
                 .frame(height: 140)
@@ -52,9 +57,37 @@ struct HomeScreen: View {
                     .foregroundColor(Color("dark4"))
             }
         }
+            
         .modifier(ContainerViewModifier())
     }
 }
+
+    func CheliActiveChallenge() -> some
+        View {
+            VStack(alignment: .leading, spacing: 10){
+                Rectangle()
+                //TODO Gradient
+                    .fill(LinearGradient(gradient: Gradient(colors: [Color.purple, Color.purple.opacity(0.7)]), startPoint: .top, endPoint: .bottom))
+                    .overlay(
+                        Image("active_feed_background")
+
+                        )
+                    .frame(height: 250)
+                    .mask {
+                        RoundedRectangle(cornerRadius: 16)
+                    }
+                    .overlay {
+                        ActiveView()
+                            .padding(.leading, 28.0)
+                            .padding(.top, 48.0)
+                            .padding(.bottom, 42.0)
+                    }
+                    
+            }
+        }
+
+    
+
 
 struct HomeScreen_Previews: PreviewProvider {
     static var previews: some View {

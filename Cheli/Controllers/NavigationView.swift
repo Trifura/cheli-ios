@@ -21,22 +21,22 @@ struct NavigationView: View {
                             .foregroundColor(Color("dark4"))
                     }
                 }
-            JoinSxreen()
+            JoinScreen()
                 .tag(1)
                 .tabItem {
                     Label {
                         Text("Join")
                     } icon: {
-                        Image("home_tab_unselected")
+                        Image("logo_manji")
                     }
                 }
-            Text("Profile")
+            ProfileScreen()
                 .tag(2)
                 .tabItem {
                     Label {
                         Text("Profile")
                     } icon: {
-                        Image("home_tab_unselected")
+                        Image(selection == 2 ? "profile_tab_selected" : "profile_tab_unselected")
                     }
                 }
         }

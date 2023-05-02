@@ -1,0 +1,53 @@
+//
+//  ActiveView.swift
+//  Cheli
+//
+
+import SwiftUI
+
+struct ActiveView: View {
+    var time: String = "23 hours left"
+    var challenge: String = "Say Something Nice To\n5 People Today "
+    
+    
+    var body: some View {
+        VStack(alignment: .leading, spacing: 16) {
+
+            Text(time)
+                .font(.system(size: 14))
+                .fontWeight(.semibold)
+                .foregroundColor(Color("primary500"))
+                .frame(width: 116, height: 32)
+                .background(.white)
+                .cornerRadius(100)
+            
+            Text(challenge)
+                .font(.system(size: 20))
+                .fontWeight(.bold)
+                .foregroundColor(.white)
+                .lineSpacing(16)
+                //TODO Text se ne prikazuje cijeli kada se postavi padding
+                /*.padding(.vertical, 16)
+                .lineLimit(nil)*/
+            
+            Button(action: {
+                // napisati action
+            }) {
+                Text("Complete")
+                    .font(.system(size: 16))
+                    .fontWeight(.bold)
+                    .foregroundColor(.white)
+                    .frame(width: 220, height: 32)
+                    .background(Color("primary500"))
+                    .cornerRadius(100)
+            }
+        }
+        .frame(maxWidth: .infinity,  alignment: .leading)
+    }
+}
+
+struct ActiveView_Previews: PreviewProvider {
+    static var previews: some View {
+        ActiveView()
+    }
+}

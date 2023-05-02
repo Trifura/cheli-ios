@@ -2,8 +2,6 @@
 //  TitleView.swift
 //  Cheli
 //
-//  Created by Tea Sakic on 24.04.2023..
-//
 
 import SwiftUI
 
