@@ -17,6 +17,7 @@ struct ButtonViewModifier: ViewModifier {
             }
             .frame(maxWidth: .infinity)
             .font(.system(size: 16))
+            .foregroundColor(Color("Button1Color"))
     }
 }
 

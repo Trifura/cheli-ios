@@ -12,10 +12,11 @@ struct ButtonWhiteViewModifier: ViewModifier {
         content
             .frame(width: 380.0, height: 50.0)
             .background(Color("Primary200"))
+            .frame(maxWidth: .infinity)
+            .font(.system(size: 16))
             .mask {
                 RoundedRectangle(cornerRadius: 100)
             }
-            .frame(maxWidth: .infinity)
-            .font(.system(size: 16))
+            .foregroundColor(Color("Button2Color"))
     }
 }

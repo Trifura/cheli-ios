@@ -12,7 +12,7 @@ struct CheliApp: App {
         
         // TODO: - check if user is logged in
         WindowGroup {
-            NavigationView()
+            RegisterView()
         }
     }
 }

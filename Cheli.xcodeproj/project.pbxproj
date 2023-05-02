@@ -12,6 +12,12 @@
 		525B2E1729FB3C580055005F /* ButtonWhiteViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525B2E1629FB3C580055005F /* ButtonWhiteViewModifier.swift */; };
 		525B2E1B29FB408C0055005F /* Nunito-Italic-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 525B2E1929FB408B0055005F /* Nunito-Italic-VariableFont_wght.ttf */; };
 		525B2E1C29FB408C0055005F /* Nunito-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 525B2E1A29FB408B0055005F /* Nunito-VariableFont_wght.ttf */; };
+		525B2E2229FEBB760055005F /* HeaderTextViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525B2E2129FEBB760055005F /* HeaderTextViewModifier.swift */; };
+		525B2E2629FEC98D0055005F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525B2E2529FEC98D0055005F /* LoginView.swift */; };
+		525B2E2829FEC9D20055005F /* BackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525B2E2729FEC9D20055005F /* BackView.swift */; };
+		525B2E2A29FEEF760055005F /* FormTextModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525B2E2929FEEF760055005F /* FormTextModifier.swift */; };
+		525B2E2C29FEF8740055005F /* MarginViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525B2E2B29FEF8740055005F /* MarginViewModifier.swift */; };
+		525B2E2E29FEFAF60055005F /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525B2E2D29FEFAF60055005F /* RegisterView.swift */; };
 		930A9CD729F6B21500F22AEA /* CheliApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930A9CD629F6B21500F22AEA /* CheliApp.swift */; };
 		930A9CD929F6B21500F22AEA /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930A9CD829F6B21500F22AEA /* NavigationView.swift */; };
 		930A9CDB29F6B21500F22AEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 930A9CDA29F6B21500F22AEA /* Assets.xcassets */; };
@@ -30,6 +36,12 @@
 		525B2E1629FB3C580055005F /* ButtonWhiteViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonWhiteViewModifier.swift; sourceTree = "<group>"; };
 		525B2E1929FB408B0055005F /* Nunito-Italic-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Nunito-Italic-VariableFont_wght.ttf"; path = "../../../Nunito/Nunito-Italic-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		525B2E1A29FB408B0055005F /* Nunito-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Nunito-VariableFont_wght.ttf"; path = "../../../Nunito/Nunito-VariableFont_wght.ttf"; sourceTree = "<group>"; };
+		525B2E2129FEBB760055005F /* HeaderTextViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTextViewModifier.swift; sourceTree = "<group>"; };
+		525B2E2529FEC98D0055005F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		525B2E2729FEC9D20055005F /* BackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackView.swift; sourceTree = "<group>"; };
+		525B2E2929FEEF760055005F /* FormTextModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextModifier.swift; sourceTree = "<group>"; };
+		525B2E2B29FEF8740055005F /* MarginViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarginViewModifier.swift; sourceTree = "<group>"; };
+		525B2E2D29FEFAF60055005F /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		930A9CD329F6B21500F22AEA /* Cheli.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cheli.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		930A9CD629F6B21500F22AEA /* CheliApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheliApp.swift; sourceTree = "<group>"; };
 		930A9CD829F6B21500F22AEA /* NavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationView.swift; sourceTree = "<group>"; };
@@ -125,6 +137,8 @@
 				930A9CED29F6BB6400F22AEA /* HomeScreen.swift */,
 				930A9CEF29F6BBA000F22AEA /* JoinSxreen.swift */,
 				525B2E1029F9D4E20055005F /* RegLogView.swift */,
+				525B2E2529FEC98D0055005F /* LoginView.swift */,
+				525B2E2D29FEFAF60055005F /* RegisterView.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -150,6 +164,7 @@
 				930A9CEC29F6B7AF00F22AEA /* ViewModifiers */,
 				930A9CF129F6BC6900F22AEA /* TitleView.swift */,
 				930A9CF529F6C2EC00F22AEA /* MemberView.swift */,
+				525B2E2729FEC9D20055005F /* BackView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -160,6 +175,9 @@
 				930A9CF329F6BF6900F22AEA /* ContainerViewModifier.swift */,
 				525B2E1429FB04290055005F /* ButtonViewModifier.swift */,
 				525B2E1629FB3C580055005F /* ButtonWhiteViewModifier.swift */,
+				525B2E2129FEBB760055005F /* HeaderTextViewModifier.swift */,
+				525B2E2929FEEF760055005F /* FormTextModifier.swift */,
+				525B2E2B29FEF8740055005F /* MarginViewModifier.swift */,
 			);
 			path = ViewModifiers;
 			sourceTree = "<group>";
@@ -238,13 +256,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				930A9CF029F6BBA000F22AEA /* JoinSxreen.swift in Sources */,
+				525B2E2C29FEF8740055005F /* MarginViewModifier.swift in Sources */,
+				525B2E2829FEC9D20055005F /* BackView.swift in Sources */,
 				930A9CD929F6B21500F22AEA /* NavigationView.swift in Sources */,
 				930A9CF629F6C2EC00F22AEA /* MemberView.swift in Sources */,
 				930A9CD729F6B21500F22AEA /* CheliApp.swift in Sources */,
 				930A9CEE29F6BB6400F22AEA /* HomeScreen.swift in Sources */,
 				930A9CF229F6BC6900F22AEA /* TitleView.swift in Sources */,
+				525B2E2A29FEEF760055005F /* FormTextModifier.swift in Sources */,
+				525B2E2629FEC98D0055005F /* LoginView.swift in Sources */,
 				525B2E1129F9D4E20055005F /* RegLogView.swift in Sources */,
 				525B2E1529FB04290055005F /* ButtonViewModifier.swift in Sources */,
+				525B2E2229FEBB760055005F /* HeaderTextViewModifier.swift in Sources */,
+				525B2E2E29FEFAF60055005F /* RegisterView.swift in Sources */,
 				930A9CF429F6BF6900F22AEA /* ContainerViewModifier.swift in Sources */,
 				525B2E1729FB3C580055005F /* ButtonWhiteViewModifier.swift in Sources */,
 			);

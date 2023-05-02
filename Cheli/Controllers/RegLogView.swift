@@ -15,21 +15,21 @@ struct RegLogView: View {
                 .padding(.top, 16)
             
             Text("Challenge yourself wherever you are!")
-                .padding(.top, 65)
+                .modifier(HeaderTextViewModifier())
+                .padding(.top, 50)
                 .padding(.bottom, 125)
+            
             VStack(){
                 Button("GET STARTED"){
                     print("Button pressed")
                 }
-                .foregroundColor(.white)
                 .modifier(ButtonViewModifier())
                 .padding(.bottom, 15)
                 Button("I ALREADY HAVE AN ACCOUNT") {
                     print("Button pressed")
                 }
-                
                 .modifier(ButtonWhiteViewModifier())
-            
+                .padding(.bottom, 15)
             }
             
         }
