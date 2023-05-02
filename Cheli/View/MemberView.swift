@@ -2,8 +2,6 @@
 //  MemberView.swift
 //  Cheli
 //
-//  Created by Tea Sakic on 24.04.2023..
-//
 
 import SwiftUI
 
@@ -12,7 +10,6 @@ struct MemberView: View {
     
     var body: some View {
         HStack(spacing: 8) {
-            //-TODO: Napraviti slikice s inicijalima
             // Image()
             // .backgrounbd()
             // .mask {Circle()}
