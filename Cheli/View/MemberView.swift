@@ -10,6 +10,7 @@ struct MemberView: View {
     
     var body: some View {
         HStack(spacing: 8) {
+            // TODO Inicijali
             // Image()
             // .backgrounbd()
             // .mask {Circle()}

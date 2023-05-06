@@ -9,6 +9,7 @@ struct ActiveView: View {
     var time: String = "23 hours left"
     var challenge: String = "Say Something Nice To\n5 People Today "
     
+    @State var is_completed: Bool = false
     
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
@@ -31,14 +32,14 @@ struct ActiveView: View {
                 .lineLimit(nil)*/
             
             Button(action: {
-                // napisati action
+                is_completed.toggle()
             }) {
-                Text("Complete")
+                Text(is_completed ? "Completed" : "Complete")
                     .font(.system(size: 16))
                     .fontWeight(.bold)
                     .foregroundColor(.white)
                     .frame(width: 220, height: 32)
-                    .background(Color("primary500"))
+                    .background(Color(is_completed ? "grey700" : "primary500"))
                     .cornerRadius(100)
             }
         }

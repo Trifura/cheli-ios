@@ -9,10 +9,10 @@ import SwiftUI
 struct ProfileScreen: View {
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading) {
+            VStack() {
                 TitleProfileView()
-                    .padding(.top, 21)
-                    .padding(.bottom, 29)
+                    .padding(.top, 16)
+                    .padding(.bottom, 24)
                 Image("profile_background")
                     .resizable()
                     .frame(height: 120)
@@ -20,7 +20,8 @@ struct ProfileScreen: View {
                     .padding(.top, 24)
                 CheliProfileFollowers()
                 CheliView()
-                CheliPastChallenge()
+                CheliAllCompletedChallenges()
+                CheliAllUncompletedChallenges()
             }
             .padding(.horizontal, 24)
         }
@@ -31,7 +32,6 @@ struct ProfileScreen: View {
     //TODO Hardcoded width?
     func CheliProfileFollowers() -> some
         View{
-            VStack() {
                 Divider()
                 HStack() {
                     VStack() {
@@ -40,7 +40,7 @@ struct ProfileScreen: View {
                             .fontWeight(.bold)
                         Text("Cheli's")
                     }
-                    .frame(width: 111, height: 58)
+                    .padding(.horizontal, 12)
                     Divider()
                         //.padding(.horizontal, 12)
                     VStack() {
@@ -49,7 +49,7 @@ struct ProfileScreen: View {
                             .fontWeight(.bold)
                         Text("Followers")
                     }
-                    .frame(width: 111, height: 58)
+                    .padding(.horizontal, 12)
                     Divider()
                         //.padding(.horizontal, 12)
                     VStack() {
@@ -58,20 +58,45 @@ struct ProfileScreen: View {
                             .fontWeight(.bold)
                         Text("Following")
                     }
-                    .frame(width: 111, height: 58)
+                    .padding(.horizontal, 12)
                 }
                 Divider()
-            }
         }
 
-    func CheliPastChallenge() -> some
-        View {
-            VStack() {
-                Rectangle()
-                
-            }
+func CheliAllCompletedChallenges() -> some
+    View {
+        VStack(){
+            Rectangle()
+                .frame(height: 110)
+                .foregroundColor(Color("bw"))
+                .cornerRadius(12)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 12)
+                        .stroke(Color ("grey200"), lineWidth: 2)
+                )
+                .overlay {
+                    ProfileChallengeCompletedView()
+                }
         }
-    
+    }
+
+func CheliAllUncompletedChallenges() -> some
+    View {
+        VStack(){
+            Rectangle()
+                .frame(height: 110)
+                .foregroundColor(Color("bw"))
+                .cornerRadius(12)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 12)
+                        .stroke(Color ("grey200"), lineWidth: 2)
+                )
+                .overlay {
+                    ProfileChallengeUncompletedView()
+                }
+        }
+    }
+
 
 struct ProfileScreen_Previews: PreviewProvider {
     static var previews: some View {

@@ -36,7 +36,8 @@ struct NavigationView: View {
                     Label {
                         Text("Profile")
                     } icon: {
-                        Image(selection == 2 ? "profile_tab_selected" : "profile_tab_unselected")
+                        Image(selection == 2 ? "profile_tab_selected" :
+                            "profile_tab_unselected")
                     }
                 }
         }

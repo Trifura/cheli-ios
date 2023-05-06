@@ -17,9 +17,28 @@
 		930A9CF229F6BC6900F22AEA /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930A9CF129F6BC6900F22AEA /* TitleView.swift */; };
 		930A9CF429F6BF6900F22AEA /* ContainerViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930A9CF329F6BF6900F22AEA /* ContainerViewModifier.swift */; };
 		930A9CF629F6C2EC00F22AEA /* MemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930A9CF529F6C2EC00F22AEA /* MemberView.swift */; };
+		930F9ACD2A03DAA400A856A6 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930F9ACB2A03DAA400A856A6 /* NetworkManager.swift */; };
+		930F9ACE2A03DAA400A856A6 /* EndpointURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930F9ACC2A03DAA400A856A6 /* EndpointURLs.swift */; };
+		930F9AD12A03DBEE00A856A6 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 930F9AD02A03DBEE00A856A6 /* Alamofire */; };
+		930F9AD42A03DC1800A856A6 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 930F9AD32A03DC1800A856A6 /* SwiftyJSON */; };
+		930F9AD62A03DDF300A856A6 /* FeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930F9AD52A03DDF300A856A6 /* FeedItem.swift */; };
+		930F9AD82A03DFC200A856A6 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930F9AD72A03DFC200A856A6 /* FeedViewModel.swift */; };
+		930F9ADB2A03E56400A856A6 /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930F9ADA2A03E56400A856A6 /* UserStore.swift */; };
+		930F9ADD2A03E62600A856A6 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930F9ADC2A03E62600A856A6 /* UserViewModel.swift */; };
+		AFCACBC82A05516A00BAE4EA /* HeaderTextViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCACBC32A05516900BAE4EA /* HeaderTextViewModifier.swift */; };
+		AFCACBC92A05516A00BAE4EA /* ButtonViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCACBC42A05516A00BAE4EA /* ButtonViewModifier.swift */; };
+		AFCACBCA2A05516A00BAE4EA /* FormTextModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCACBC52A05516A00BAE4EA /* FormTextModifier.swift */; };
+		AFCACBCB2A05516A00BAE4EA /* MarginViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCACBC62A05516A00BAE4EA /* MarginViewModifier.swift */; };
+		AFCACBCC2A05516A00BAE4EA /* ButtonWhiteViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCACBC72A05516A00BAE4EA /* ButtonWhiteViewModifier.swift */; };
+		AFCACBCE2A0551AC00BAE4EA /* BackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCACBCD2A0551AC00BAE4EA /* BackView.swift */; };
+		AFCACBD22A05521300BAE4EA /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCACBCF2A05521300BAE4EA /* RegisterView.swift */; };
+		AFCACBD32A05521300BAE4EA /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCACBD02A05521300BAE4EA /* LoginView.swift */; };
+		AFCACBD42A05521300BAE4EA /* LandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCACBD12A05521300BAE4EA /* LandingView.swift */; };
 		EE3CA35E2A0194FC00BF5294 /* CheliView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3CA35D2A0194FC00BF5294 /* CheliView.swift */; };
 		EE3CA3602A01990C00BF5294 /* ProfileFollowersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3CA35F2A01990C00BF5294 /* ProfileFollowersView.swift */; };
 		EE468AA629FF295600622D2F /* ActiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE468AA529FF295600622D2F /* ActiveView.swift */; };
+		EE4C81E52A02B7B900653103 /* ProfileChallengeCompletedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4C81E42A02B7B900653103 /* ProfileChallengeCompletedView.swift */; };
+		EE4C81E72A02CC1900653103 /* ProfileChallengeUncompletedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4C81E62A02CC1900653103 /* ProfileChallengeUncompletedView.swift */; };
 		EED7E6CD29FF46B9004FBA9B /* MyFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED7E6CC29FF46B9004FBA9B /* MyFeedView.swift */; };
 		EED7E6CF2A010469004FBA9B /* TitleProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED7E6CE2A010469004FBA9B /* TitleProfileView.swift */; };
 		EED7E6D32A010523004FBA9B /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED7E6D22A010523004FBA9B /* ProfileScreen.swift */; };
@@ -37,9 +56,27 @@
 		930A9CF129F6BC6900F22AEA /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		930A9CF329F6BF6900F22AEA /* ContainerViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewModifier.swift; sourceTree = "<group>"; };
 		930A9CF529F6C2EC00F22AEA /* MemberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberView.swift; sourceTree = "<group>"; };
+		930F9ACB2A03DAA400A856A6 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		930F9ACC2A03DAA400A856A6 /* EndpointURLs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndpointURLs.swift; sourceTree = "<group>"; };
+		930F9AD52A03DDF300A856A6 /* FeedItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedItem.swift; sourceTree = "<group>"; };
+		930F9AD72A03DFC200A856A6 /* FeedViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
+		930F9AD92A03E28300A856A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		930F9ADA2A03E56400A856A6 /* UserStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
+		930F9ADC2A03E62600A856A6 /* UserViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		AFCACBC32A05516900BAE4EA /* HeaderTextViewModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeaderTextViewModifier.swift; path = ../../../../../Downloads/HeaderTextViewModifier.swift; sourceTree = "<group>"; };
+		AFCACBC42A05516A00BAE4EA /* ButtonViewModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ButtonViewModifier.swift; path = ../../../../../Downloads/ButtonViewModifier.swift; sourceTree = "<group>"; };
+		AFCACBC52A05516A00BAE4EA /* FormTextModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FormTextModifier.swift; path = ../../../../../Downloads/FormTextModifier.swift; sourceTree = "<group>"; };
+		AFCACBC62A05516A00BAE4EA /* MarginViewModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MarginViewModifier.swift; path = ../../../../../Downloads/MarginViewModifier.swift; sourceTree = "<group>"; };
+		AFCACBC72A05516A00BAE4EA /* ButtonWhiteViewModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ButtonWhiteViewModifier.swift; path = ../../../../../Downloads/ButtonWhiteViewModifier.swift; sourceTree = "<group>"; };
+		AFCACBCD2A0551AC00BAE4EA /* BackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BackView.swift; path = ../../../../Downloads/BackView.swift; sourceTree = "<group>"; };
+		AFCACBCF2A05521300BAE4EA /* RegisterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterView.swift; path = ../../../../Downloads/RegisterView.swift; sourceTree = "<group>"; };
+		AFCACBD02A05521300BAE4EA /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginView.swift; path = ../../../../Downloads/LoginView.swift; sourceTree = "<group>"; };
+		AFCACBD12A05521300BAE4EA /* LandingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LandingView.swift; path = ../../../../Downloads/LandingView.swift; sourceTree = "<group>"; };
 		EE3CA35D2A0194FC00BF5294 /* CheliView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheliView.swift; sourceTree = "<group>"; };
 		EE3CA35F2A01990C00BF5294 /* ProfileFollowersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFollowersView.swift; sourceTree = "<group>"; };
 		EE468AA529FF295600622D2F /* ActiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveView.swift; sourceTree = "<group>"; };
+		EE4C81E42A02B7B900653103 /* ProfileChallengeCompletedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileChallengeCompletedView.swift; sourceTree = "<group>"; };
+		EE4C81E62A02CC1900653103 /* ProfileChallengeUncompletedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileChallengeUncompletedView.swift; sourceTree = "<group>"; };
 		EED7E6CC29FF46B9004FBA9B /* MyFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFeedView.swift; sourceTree = "<group>"; };
 		EED7E6CE2A010469004FBA9B /* TitleProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleProfileView.swift; sourceTree = "<group>"; };
 		EED7E6D22A010523004FBA9B /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
@@ -50,6 +87,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				930F9AD42A03DC1800A856A6 /* SwiftyJSON in Frameworks */,
+				930F9AD12A03DBEE00A856A6 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +115,7 @@
 		930A9CD529F6B21500F22AEA /* Cheli */ = {
 			isa = PBXGroup;
 			children = (
+				930F9AD92A03E28300A856A6 /* Info.plist */,
 				930A9CEB29F6B7A500F22AEA /* View */,
 				930A9CE929F6B6F900F22AEA /* Utilities */,
 				930A9CE829F6B6EC00F22AEA /* Controllers */,
@@ -99,6 +139,7 @@
 		930A9CE629F6B6D500F22AEA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				930F9AD52A03DDF300A856A6 /* FeedItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -106,6 +147,8 @@
 		930A9CE729F6B6E200F22AEA /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				930F9ADC2A03E62600A856A6 /* UserViewModel.swift */,
+				930F9AD72A03DFC200A856A6 /* FeedViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -113,6 +156,9 @@
 		930A9CE829F6B6EC00F22AEA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				AFCACBD12A05521300BAE4EA /* LandingView.swift */,
+				AFCACBD02A05521300BAE4EA /* LoginView.swift */,
+				AFCACBCF2A05521300BAE4EA /* RegisterView.swift */,
 				930A9CD829F6B21500F22AEA /* NavigationView.swift */,
 				930A9CED29F6BB6400F22AEA /* HomeScreen.swift */,
 				930A9CEF29F6BBA000F22AEA /* JoinScreen.swift */,
@@ -124,6 +170,7 @@
 		930A9CE929F6B6F900F22AEA /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				930F9ADA2A03E56400A856A6 /* UserStore.swift */,
 				930A9CEA29F6B70700F22AEA /* Networking */,
 			);
 			path = Utilities;
@@ -132,6 +179,8 @@
 		930A9CEA29F6B70700F22AEA /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				930F9ACC2A03DAA400A856A6 /* EndpointURLs.swift */,
+				930F9ACB2A03DAA400A856A6 /* NetworkManager.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -141,11 +190,14 @@
 			children = (
 				930A9CEC29F6B7AF00F22AEA /* ViewModifiers */,
 				930A9CF129F6BC6900F22AEA /* TitleView.swift */,
+				EE4C81E62A02CC1900653103 /* ProfileChallengeUncompletedView.swift */,
 				EED7E6CE2A010469004FBA9B /* TitleProfileView.swift */,
+				AFCACBCD2A0551AC00BAE4EA /* BackView.swift */,
 				EED7E6CC29FF46B9004FBA9B /* MyFeedView.swift */,
 				EE3CA35F2A01990C00BF5294 /* ProfileFollowersView.swift */,
 				EE3CA35D2A0194FC00BF5294 /* CheliView.swift */,
 				EE468AA529FF295600622D2F /* ActiveView.swift */,
+				EE4C81E42A02B7B900653103 /* ProfileChallengeCompletedView.swift */,
 				930A9CF529F6C2EC00F22AEA /* MemberView.swift */,
 			);
 			path = View;
@@ -154,6 +206,11 @@
 		930A9CEC29F6B7AF00F22AEA /* ViewModifiers */ = {
 			isa = PBXGroup;
 			children = (
+				AFCACBC42A05516A00BAE4EA /* ButtonViewModifier.swift */,
+				AFCACBC72A05516A00BAE4EA /* ButtonWhiteViewModifier.swift */,
+				AFCACBC52A05516A00BAE4EA /* FormTextModifier.swift */,
+				AFCACBC32A05516900BAE4EA /* HeaderTextViewModifier.swift */,
+				AFCACBC62A05516A00BAE4EA /* MarginViewModifier.swift */,
 				930A9CF329F6BF6900F22AEA /* ContainerViewModifier.swift */,
 			);
 			path = ViewModifiers;
@@ -175,6 +232,10 @@
 			dependencies = (
 			);
 			name = Cheli;
+			packageProductDependencies = (
+				930F9AD02A03DBEE00A856A6 /* Alamofire */,
+				930F9AD32A03DC1800A856A6 /* SwiftyJSON */,
+			);
 			productName = Cheli;
 			productReference = 930A9CD329F6B21500F22AEA /* Cheli.app */;
 			productType = "com.apple.product-type.application";
@@ -203,6 +264,10 @@
 				Base,
 			);
 			mainGroup = 930A9CCA29F6B21500F22AEA;
+			packageReferences = (
+				930F9ACF2A03DBEE00A856A6 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				930F9AD22A03DC1800A856A6 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+			);
 			productRefGroup = 930A9CD429F6B21500F22AEA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -230,18 +295,35 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				930F9AD82A03DFC200A856A6 /* FeedViewModel.swift in Sources */,
+				AFCACBD32A05521300BAE4EA /* LoginView.swift in Sources */,
+				AFCACBCB2A05516A00BAE4EA /* MarginViewModifier.swift in Sources */,
+				AFCACBC82A05516A00BAE4EA /* HeaderTextViewModifier.swift in Sources */,
+				AFCACBCE2A0551AC00BAE4EA /* BackView.swift in Sources */,
+				EE4C81E52A02B7B900653103 /* ProfileChallengeCompletedView.swift in Sources */,
+				AFCACBD42A05521300BAE4EA /* LandingView.swift in Sources */,
+				AFCACBC92A05516A00BAE4EA /* ButtonViewModifier.swift in Sources */,
 				EE3CA3602A01990C00BF5294 /* ProfileFollowersView.swift in Sources */,
 				EED7E6CD29FF46B9004FBA9B /* MyFeedView.swift in Sources */,
 				930A9CF029F6BBA000F22AEA /* JoinScreen.swift in Sources */,
+				930F9ACD2A03DAA400A856A6 /* NetworkManager.swift in Sources */,
+				930F9ADB2A03E56400A856A6 /* UserStore.swift in Sources */,
+				EE4C81E72A02CC1900653103 /* ProfileChallengeUncompletedView.swift in Sources */,
 				930A9CD929F6B21500F22AEA /* NavigationView.swift in Sources */,
 				EE468AA629FF295600622D2F /* ActiveView.swift in Sources */,
+				930F9ACE2A03DAA400A856A6 /* EndpointURLs.swift in Sources */,
 				930A9CF629F6C2EC00F22AEA /* MemberView.swift in Sources */,
 				930A9CD729F6B21500F22AEA /* CheliApp.swift in Sources */,
+				AFCACBD22A05521300BAE4EA /* RegisterView.swift in Sources */,
 				EE3CA35E2A0194FC00BF5294 /* CheliView.swift in Sources */,
+				AFCACBCC2A05516A00BAE4EA /* ButtonWhiteViewModifier.swift in Sources */,
 				930A9CEE29F6BB6400F22AEA /* HomeScreen.swift in Sources */,
+				AFCACBCA2A05516A00BAE4EA /* FormTextModifier.swift in Sources */,
 				930A9CF229F6BC6900F22AEA /* TitleView.swift in Sources */,
+				930F9AD62A03DDF300A856A6 /* FeedItem.swift in Sources */,
 				930A9CF429F6BF6900F22AEA /* ContainerViewModifier.swift in Sources */,
 				EED7E6D32A010523004FBA9B /* ProfileScreen.swift in Sources */,
+				930F9ADD2A03E62600A856A6 /* UserViewModel.swift in Sources */,
 				EED7E6CF2A010469004FBA9B /* TitleProfileView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -374,6 +456,7 @@
 				DEVELOPMENT_TEAM = YVJF7D769F;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Cheli/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -407,6 +490,7 @@
 				DEVELOPMENT_TEAM = YVJF7D769F;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Cheli/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -451,6 +535,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		930F9ACF2A03DBEE00A856A6 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		930F9AD22A03DC1800A856A6 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		930F9AD02A03DBEE00A856A6 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 930F9ACF2A03DBEE00A856A6 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		930F9AD32A03DC1800A856A6 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 930F9AD22A03DC1800A856A6 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 930A9CCB29F6B21500F22AEA /* Project object */;
 }

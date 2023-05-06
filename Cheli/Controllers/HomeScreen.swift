@@ -9,7 +9,15 @@ import SwiftUI
 struct HomeScreen: View {
     var colors : [Color] = [.purple, .red, .yellow, .blue]
     var emoji : [String] = ["☃️", "⚽️", "💕", "🌸"]
-  
+    @ObservedObject var viewModel: FeedViewModel = FeedViewModel()
+    @EnvironmentObject var userStore: UserStore
+    
+    init() {
+        viewModel.fetchFeed(userToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjgzMTg5MjA4LCJleHAiOjE2ODM3OTQwMDh9.90p5pWNXq_DulvdSJyi88RN_wPBN81vKt4X8hvsl3ZI")
+        
+      //  viewModel.fetchFeed(userToken: userStore.userToken)
+    }
+    
     var body: some View {
         ScrollView {
             VStack {
@@ -21,12 +29,20 @@ struct HomeScreen: View {
                     
                 LazyVStack(spacing: 20) {
                     //start
+//                    ForEach(viewModel.feedItems, id: \.self) { item in
+//                        CheliItemView(icon: emoji.randomElement() ?? "🥰", title: item.challenge.title)
+//                    }
+                    
                     ForEach(0..<10) { _ in
                         CheliItemView(icon: emoji.randomElement() ?? "🥰", title: "Build a Snowman With a Bunch of Your Friends In an Hour")
                     }
                 }
+               
             }
             .padding(.horizontal, 24)
+//            .onAppear {
+//
+//            }
         }
     }
     

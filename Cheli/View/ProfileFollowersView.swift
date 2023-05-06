@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct ProfileFollowersView: View {
+    let username: String = "Andrew Ainsley"
+    let user_id: String = "@andrew_ainsley"
+    let profile_picture: String = "member_bigger"
+    @State var is_following: Bool = false
+
     var body: some View {
-        let username: String = "Andrew Ainsley"
-        let user_id: String = "@andrew_ainsley"
-        let profile_picture: String = "member_bigger"
-        
             HStack {
                 Image(profile_picture)
                 VStack(alignment: .leading) {
@@ -29,16 +30,21 @@ struct ProfileFollowersView: View {
                 .padding(.leading, 10)
                 Spacer()
                 Button(action: {
-                    // napisati action
+                    is_following.toggle()
                 }) {
-                    Text("Follow")
+                    Text(is_following ? "Following" : "Follow")
                         .font(.system(size: 14))
                         .fontWeight(.semibold)
-                        .foregroundColor(.white)
+                        .foregroundColor(is_following ? Color("dark4") : .white)
                         .frame(width: 77, height: 32)
-                        .background(Color("primary500"))
+                        .background(Color(is_following ? "white" : "primary500"))
                         .cornerRadius(100)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 100)
+                                .stroke(.black, lineWidth: is_following ? 2: 0)
+                        )
                 }
+
             }
         }
     }
