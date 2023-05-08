@@ -25,9 +25,10 @@ struct NavigationView: View {
                 .tag(1)
                 .tabItem {
                     Label {
-                        Text("Join")
+                        Text("Search")
                     } icon: {
-                        Image("logo_manji")
+                        Image(selection == 1 ? "search_tab_selected" : "search_tab_unselected")
+                            .foregroundColor(Color("dark4"))
                     }
                 }
             ProfileScreen()
@@ -38,6 +39,7 @@ struct NavigationView: View {
                     } icon: {
                         Image(selection == 2 ? "profile_tab_selected" :
                             "profile_tab_unselected")
+                            .foregroundColor(Color("dark4"))
                     }
                 }
         }

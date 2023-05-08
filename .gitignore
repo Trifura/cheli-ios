@@ -1,6 +1,6 @@
 ### Xcode ###
 ## User settings
-xcuserdata/
+*.xcodeproj/xcuserdata/
 
 ## Xcode 8 and earlier
 *.xcscmblueprint
@@ -14,5 +14,7 @@ xcuserdata/
 !*.xcworkspace/contents.xcworkspacedata
 /*.gcno
 **/xcshareddata/WorkspaceSettings.xcsettings
-Cheli.xcodeproj/project.xcworkspace/xcuserdata/students.xcuserdatad/UserInterfaceState.xcuserstate
+
+## Override
+Cheli.xcodeproj/project.xcworkspace/xcuserdata
 Cheli.xcodeproj/project.xcworkspace/xcuserdata/students.xcuserdatad/UserInterfaceState.xcuserstate
