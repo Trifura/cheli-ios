@@ -34,7 +34,7 @@ struct HomeScreen: View {
 //                    }
                     
                     ForEach(0..<10) { _ in
-                        CheliItemView(icon: emoji.randomElement() ?? "🥰", title: "Build a Snowman With a Bunch of Your Friends In an Hour")
+                        CheliItemView(icon: emoji.randomElement() ?? "🥰", title: "Build a Snowman With a Bunch of Your Friends In an Hour!!!")
                     }
                 }
                
