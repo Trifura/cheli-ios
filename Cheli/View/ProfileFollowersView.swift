@@ -8,21 +8,33 @@
 import SwiftUI
 
 struct ProfileFollowersView: View {
-    let username: String = "Andrew Ainsley"
-    let user_id: String = "@andrew_ainsley"
-    let profile_picture: String = "member_bigger"
+    var fullName: String = "Andrew Ainsley"
+    var username: String = "@andrew_ainsley"
+    //var profile_picture: String = "member_bigger"
     @State var is_following: Bool = false
 
     var body: some View {
             HStack {
-                Image(profile_picture)
+                //Image(profile_picture)
+                Image("")
+                    .resizable()
+                    .frame(width: 60, height: 60)
+                    .background(Color.red)
+                    .mask(Circle().frame(height: 60).foregroundColor(.red))
+                    .overlay(
+                        Text("")
+                            .font(.system(size: 24, weight: .bold))
+                            .foregroundColor(.white)
+                            .frame(width: 60, height: 60)
+                    )
+                
                 VStack(alignment: .leading) {
                     
-                    Text(username)
+                    Text(fullName)
                         .font(.system(size: 20, weight: .bold))
                         .foregroundColor(Color("grey900"))
                         .padding(.bottom, 0.5)
-                    Text(user_id)
+                    Text(username)
                         .font(.system(size: 14, weight: .medium))
                         .foregroundColor(Color("grey700"))
                     

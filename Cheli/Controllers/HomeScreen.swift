@@ -29,13 +29,13 @@ struct HomeScreen: View {
                     
                 LazyVStack(spacing: 20) {
                     //start
-//                    ForEach(viewModel.feedItems, id: \.self) { item in
-//                        CheliItemView(icon: emoji.randomElement() ?? "🥰", title: item.challenge.title)
-//                    }
+                    /*ForEach(viewModel.feedItems, id: \.self) {item in
+                            CheliItemView(icon: emoji.randomElement() ?? "🥰", title: item.challenge.title)
+                    } */
                     
                     ForEach(0..<10) { _ in
                         CheliItemView(icon: emoji.randomElement() ?? "🥰", title: "Build a Snowman With a Bunch of Your Friends In an Hour!!!")
-                    }
+                    } 
                 }
                
             }
