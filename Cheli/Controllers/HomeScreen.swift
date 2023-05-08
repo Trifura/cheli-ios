@@ -13,7 +13,9 @@ struct HomeScreen: View {
     @EnvironmentObject var userStore: UserStore
     
     init() {
-        viewModel.fetchFeed(userToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjgzMTg5MjA4LCJleHAiOjE2ODM3OTQwMDh9.90p5pWNXq_DulvdSJyi88RN_wPBN81vKt4X8hvsl3ZI")
+        //viewModel.fetchFeed(userToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjgzMTg5MjA4LCJleHAiOjE2ODM3OTQwMDh9.90p5pWNXq_DulvdSJyi88RN_wPBN81vKt4X8hvsl3ZI")
+        
+        viewModel.fetchFeed(userToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiNGI3YzdmNmEtZmRlMi00MjY1LWI3YTQtMGRlYTRlMGY4YjI2IiwiaWF0IjoxNjgzNTY2OTY2LCJleHAiOjE2ODQxNzE3NjZ9.zW0WHaFSN9lR5v2ZSWEe-_uSxcIZuf0lBSQx_5kdLi4")
         
       //  viewModel.fetchFeed(userToken: userStore.userToken)
     }
@@ -29,13 +31,13 @@ struct HomeScreen: View {
                     
                 LazyVStack(spacing: 20) {
                     //start
-                    /*ForEach(viewModel.feedItems, id: \.self) {item in
-                            CheliItemView(icon: emoji.randomElement() ?? "🥰", title: item.challenge.title)
-                    } */
+                    ForEach(viewModel.feedItems, id: \.self) {item in
+                        CheliItemView(icon: emoji.randomElement() ?? "🥰", title: item.challenge.title, fullName: item.user.fullName)
+                    }
                     
-                    ForEach(0..<10) { _ in
+                   /* ForEach(0..<10) { _ in
                         CheliItemView(icon: emoji.randomElement() ?? "🥰", title: "Build a Snowman With a Bunch of Your Friends In an Hour!!!")
-                    } 
+                    } */
                 }
                
             }
@@ -47,7 +49,7 @@ struct HomeScreen: View {
     }
     
     @ViewBuilder
-    func CheliItemView(icon: String, title: String) -> some View {
+    func CheliItemView(icon: String, title: String, fullName: String) -> some View {
         VStack(alignment: .leading, spacing: 10){ 
             Rectangle()
                 .fill(colors.randomElement() ?? .purple)
@@ -65,7 +67,7 @@ struct HomeScreen: View {
          // TODO: - remove
             Divider()
             HStack {
-                MemberView()
+                MemberView(fullName: fullName)
                 Spacer()
                 Text("2 seconds ago")
                     .font(.system(size: 12))
