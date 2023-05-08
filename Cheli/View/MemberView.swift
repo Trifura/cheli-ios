@@ -6,7 +6,7 @@
 import SwiftUI
 
 struct MemberView: View {
-    var name: String = "John Doe"
+    let fullName: String
     
     var body: some View {
         HStack(spacing: 8) {
@@ -16,7 +16,7 @@ struct MemberView: View {
             // .mask {Circle()}
             
             Image("member")
-            Text(name)
+            Text(fullName)
                 .font(.system(size: 12))
                 .foregroundColor(Color("dark4"))
          
@@ -26,6 +26,6 @@ struct MemberView: View {
 
 struct MemberView_Previews: PreviewProvider {
     static var previews: some View {
-        MemberView()
+        MemberView(fullName: "John Doe")
     }
 }

@@ -13,8 +13,8 @@ struct NetworkManager {
         
         let token = "Bearer \(token)"
         let headers: HTTPHeaders = [
-                    "Authorization": token
-                 //   , "Accept": "application/json"
+                    "Authorization": token,
+                    "Accept": "application/json"
         ]
         
         AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).validate().responseData { data in
@@ -50,29 +50,38 @@ struct NetworkManager {
     
     static func sendGet(url:URL, token: String, params: [String: Any] = [:], completion: @escaping ((_ json: JSON) -> Void), completionWithFailure: @escaping ((_ error: NSError) -> Void)) {
         
+        print("pusi kurac pederu")
+        
         let token = "Bearer \(token)"
         let headers: HTTPHeaders = [
-                    "Authorization": token
-                   //, "Accept": "application/json"
+                    "Authorization": token,
+                    "Accept": "application/json"
         ]
+        
+        print(headers)
 
          AF.request(url, method: .get, parameters: params, headers: headers).validate().responseData { data in
-             print(data)
+             print("picketino", data, "wtf")
+             
             if data.value != nil {
                 let json = JSON(data.value as Any)
-                let status = json["status"].boolValue
-                if status {
+                
+                print(json)
+               
+                //let status = json["status"].boolValue
+                
+                //if status {
                     OnMainThread {
                         completion(json)
                     }
-                }  else {
+                /*}  else {
                     OnMainThread {
                         let message: String? = json["message"].string
                         
                         let error = NSError(domain: "Custom domain", code: 2, userInfo: [NSLocalizedDescriptionKey: message ?? "Something went wrong"])
                         completionWithFailure(error)
                     }
-                }
+                }*/
             } else {
                 if let data = data.data {
                     let json = JSON(data)
