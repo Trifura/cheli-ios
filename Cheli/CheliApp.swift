@@ -10,17 +10,17 @@ import SwiftUI
 struct CheliApp: App {
     
     @ObservedObject var userStore: UserStore = UserStore()
-
+    
     var body: some Scene {
-        
-        // TODO: - check if user is logged in
         WindowGroup {
-          //  if userStore.isLogged {
+            if userStore.isLogged {
                 NavigationView()
+                .environmentObject(userStore)
+            } else {
+                LandingView()
                     .environmentObject(userStore)
-         //   } else {
-                // LandingView()
-         //   }
+            }
         }
     }
 }
+

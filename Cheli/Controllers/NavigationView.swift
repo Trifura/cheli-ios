@@ -8,8 +8,10 @@ import SwiftUI
 
 struct NavigationView: View {
     @State var selection: Int = 0
+    @ObservedObject var userStore = UserStore()
     
     var body: some View {
+        
         TabView(selection: $selection) {
             HomeScreen()
                 .tag(0)

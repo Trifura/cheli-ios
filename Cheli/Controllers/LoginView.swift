@@ -1,53 +1,39 @@
-//
-//  LoginView.swift
-//  Cheli
-//
-//  Created by Benjamin Sabo on 30.04.2023..
-//
-
 import SwiftUI
-
-
 
 struct LoginView: View {
     @State private var email: String = ""
-    @State private var pass: String = ""
+    @State private var password: String = ""
+    @ObservedObject var viewModel: UserViewModel = UserViewModel()
+    @State private var isLoggedIn = false
     
     var body: some View {
-        VStack{
-            
-          BackView()
-                .padding(.top, 24)
-            Text("Hello there 👋")
-                .padding(.top, 20)
-                .modifier(HeaderTextViewModifier())
-                .frame(maxWidth: .infinity, alignment: .leading)
-            Text("Email")
-                .modifier(FormTextViewModifier())
-                .padding(.top, 32)
-            TextField("example@example.com", text: $email)
-                .modifier(MarginViewModifier())
-            
-            
-            Text("Password")
-                .modifier(FormTextViewModifier())
-                .padding(.top, 32)
-            SecureField("Password", text: $pass)
-                .modifier(MarginViewModifier())
-            Spacer()
-            Button("SIGN IN") {
-                print("Button pressed")
+        SwiftUI.NavigationView {
+            VStack {
+                Text("Hello there 👋").padding(.top, 20)
+                    .modifier(HeaderTextViewModifier())
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                Text("Email").modifier(FormTextViewModifier()).padding(.top, 32)
+                TextField("example@example.com", text: $email).modifier(MarginViewModifier())
+                Text("Password").modifier(FormTextViewModifier()).padding(.top, 32)
+                SecureField("Password", text: $password).modifier(MarginViewModifier())
+                Spacer()
+                Button("SIGN IN") {
+                    /*viewModel.loginUser(username: email, password: password) { success in
+                        if success {
+                            print("Login successful")
+                            
+                        } else {
+                            print("Login failed")
+                            // TODO: - Show error message to user
+                        }
+                    }*/
+                    
+                    isLoggedIn = true
+                    
+                }.modifier(ButtonViewModifier())
+                
+                NavigationLink("", destination: NavigationView(), isActive: $isLoggedIn)
             }
-                .modifier(ButtonViewModifier())
         }
-    }
-}
-
-
-
-
-struct LoginView_Previews: PreviewProvider {
-    static var previews: some View {
-        LoginView()
     }
 }

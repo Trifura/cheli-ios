@@ -15,17 +15,18 @@ struct RegisterView: View {
     
     
     
+    
     var body: some View {
         
         VStack{
             
             
-           /* Text("Create an account ✏️")
-                .padding(.top, 24)
-                .modifier(HeaderTextViewModifier())
-                .frame(maxWidth: .infinity, alignment: .leading)*/
-                
-           
+            Text("Create an account ✏️")
+             .padding(.top, 24)
+             .modifier(HeaderTextViewModifier())
+             .frame(maxWidth: .infinity, alignment: .leading)
+            
+            
             Text("Please enter your full name, username, email address and password. If you forget it, then you have to do forgot password.")
                 .modifier(MarginViewModifier())
                 .padding(.top, 20)
@@ -35,42 +36,44 @@ struct RegisterView: View {
             
             
             
+            Group{
+                Text("Full name")
+                    .modifier(FormTextViewModifier())
+                    .padding(.top, 32)
+                TextField("Benjamin Sabo", text: $name1)
+                    .modifier(MarginViewModifier())
+                
+                
+                
+                Text("Username")
+                    .modifier(FormTextViewModifier())
+                    .padding(.top, 32)
+                TextField("BenjaminSabo", text: $username1)
+                    .modifier(MarginViewModifier())
+                
+                Text("Email")
+                    .modifier(FormTextViewModifier())
+                    .padding(.top, 32)
+                TextField("example@example.com", text: $email1)
+                    .modifier(MarginViewModifier())
+                
+                
+                Text("Password")
+                    .modifier(FormTextViewModifier())
+                    .padding(.top, 32)
+                SecureField("Password", text: $pass1)
+                    .modifier(MarginViewModifier())
+            }
             
             
-            Text("Full name")
-                .modifier(FormTextViewModifier())
-                .padding(.top, 32)
-            TextField("Benjamin Sabo", text: $name1)
-                .modifier(MarginViewModifier())
-            
-            
-            
-            Text("Username")
-                .modifier(FormTextViewModifier())
-                .padding(.top, 32)
-            TextField("BenjaminSabo", text: $username1)
-                .modifier(MarginViewModifier())
-            
-            Text("Email")
-                .modifier(FormTextViewModifier())
-                .padding(.top, 32)
-            TextField("example@example.com", text: $email1)
-                .modifier(MarginViewModifier())
-            
-            
-            Text("Password")
-                .modifier(FormTextViewModifier())
-                .padding(.top, 32)
-            SecureField("Password", text: $pass1)
-                .modifier(MarginViewModifier())
             
             Spacer()
             
-            /*Button("SIGN IN") {
-                print("Button pressed")
-            }
-            .modifier(ButtonViewModifier())*/
-          
+            Button("SIGN IN") {
+             print("Button pressed")
+             }
+             .modifier(ButtonViewModifier())
+            
             
         }
     }
