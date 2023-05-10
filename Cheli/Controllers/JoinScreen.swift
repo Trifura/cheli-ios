@@ -16,7 +16,7 @@ struct JoinScreen: View {
                 SearchBar(text: $searchText)
                 PeopleView()
                 ForEach(0..<4) { _ in
-                    ProfileFollowersView()
+                    ProfileFollowersView(fullName: "Borna Hrastović", username: "bhrastovic", initials: "BH")
                         .padding(.bottom, 24)
                 }
                     //.padding(.top, 24)

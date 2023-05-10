@@ -19,16 +19,19 @@ struct FeedItem: Codable, Hashable {
 }
 
 struct User: Codable, Hashable {
-    var id: Int
+    var uuid: String
     var username: String
     var fullName: String
     var email: String
+    var initials: String
+    
     
     init(data: [String: Any]) {
-        id = data["id"] as? Int ?? 0
+        uuid = data["id"] as? String ?? "some-random-id"
         username = data["username"] as? String ?? ""
         fullName = data["fullName"] as? String ?? ""
         email = data["email"] as? String ?? ""
+        initials = data["initials"] as? String ?? ""
     }
 }
 

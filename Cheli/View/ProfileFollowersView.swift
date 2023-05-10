@@ -2,15 +2,15 @@
 //  ProfileFollowersView.swift
 //  Cheli
 //
-//  Created by Temp Guest on 02.05.2023..
-//
 
 import SwiftUI
 
 struct ProfileFollowersView: View {
-    var fullName: String = "Andrew Ainsley"
-    var username: String = "@andrew_ainsley"
-    //var profile_picture: String = "member_bigger"
+    //var fullName: String = ""
+    //var username: String = ""
+    let fullName: String
+    let username: String
+    let initials: String
     @State var is_following: Bool = false
 
     var body: some View {
@@ -22,7 +22,7 @@ struct ProfileFollowersView: View {
                     .background(Color.red)
                     .mask(Circle().frame(height: 60).foregroundColor(.red))
                     .overlay(
-                        Text("")
+                        Text(initials)
                             .font(.system(size: 24, weight: .bold))
                             .foregroundColor(.white)
                             .frame(width: 60, height: 60)
@@ -34,7 +34,7 @@ struct ProfileFollowersView: View {
                         .font(.system(size: 20, weight: .bold))
                         .foregroundColor(Color("grey900"))
                         .padding(.bottom, 0.5)
-                    Text(username)
+                    Text("@"+username)
                         .font(.system(size: 14, weight: .medium))
                         .foregroundColor(Color("grey700"))
                     
@@ -63,6 +63,6 @@ struct ProfileFollowersView: View {
 
 struct ProfileFollowersView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileFollowersView()
+        ProfileFollowersView(fullName: "John Doe", username: "johndoe", initials: "JD")
     }
 }
