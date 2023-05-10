@@ -1,43 +1,52 @@
-//
-//  RegLogView.swift
-//  Cheli
-//
-//  Created by Benjamin Sabo on 26.04.2023..
-//
-
 import SwiftUI
-
+import Combine
 
 struct LandingView: View {
+    @EnvironmentObject var userStore: UserStore
+    @State private var isPresentingRegistration = false
+    @State private var isPresentingLogin = false
+    
     var body: some View {
-        VStack(){
-            Image("log_img")
-                .padding(.top, 16)
-            
-            Text("Challenge yourself wherever you are!")
-                .modifier(HeaderTextViewModifier())
-                .padding(.top, 50)
-                .padding(.bottom, 125)
-            
-            VStack(){
-                Button("GET STARTED"){
-                    print("Button pressed")
+        ZStack {
+            if !userStore.isLogged {
+                VStack {
+                    Image("log_img")
+                        .padding(.top, 16)
+                    
+                    Text("Challenge yourself wherever you are!")
+                        .modifier(HeaderTextViewModifier())
+                        .padding(.top, 50)
+                        .padding(.bottom, 120)
+                    
+                    VStack {
+                        Button(action: {
+                            isPresentingRegistration = true
+                        }) {
+                            Text("GET STARTED")
+                                .modifier(ButtonViewModifier())
+                                .padding(.bottom, 15)
+                        }
+                        .sheet(isPresented: $isPresentingRegistration) {
+                            RegisterView()
+                        }
+                        
+                        Button(action: {
+                            isPresentingLogin = true
+                        }) {
+                            Text("I ALREADY HAVE AN ACCOUNT")
+                                .modifier(ButtonWhiteViewModifier())
+                                .padding(.bottom, 15)
+                        }
+                        .sheet(isPresented: $isPresentingLogin) {
+                            LoginView()
+                        }
+                    }
                 }
-                .modifier(ButtonViewModifier())
-                .padding(.bottom, 15)
-                Button("I ALREADY HAVE AN ACCOUNT") {
-                    print("Button pressed")
-                }
-                .modifier(ButtonWhiteViewModifier())
-                .padding(.bottom, 15)
+                .navigationBarTitle("")
+                .navigationBarHidden(true)
+            } else {
+                NavigationView()
             }
-            
         }
-    }
-}
-
-struct LandingView_Previews: PreviewProvider {
-    static var previews: some View {
-        LandingView()
     }
 }
