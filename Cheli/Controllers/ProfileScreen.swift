@@ -7,6 +7,11 @@
 import SwiftUI
 
 struct ProfileScreen: View {
+    @ObservedObject var userModel: UserViewModel = UserViewModel()
+    
+    init() {
+        userModel.getMe()
+    }
     var body: some View {
         ScrollView {
             VStack() {
@@ -16,7 +21,7 @@ struct ProfileScreen: View {
                 Image("profile_background")
                     .resizable()
                     .frame(height: 120)
-                ProfileFollowersView()
+                ProfileFollowersView(fullName: userModel.myInfo.fullName, username: userModel.myInfo.username, initials: userModel.myInfo.initials)
                     .padding(.top, 24)
                 CheliProfileFollowers()
                 CheliView()

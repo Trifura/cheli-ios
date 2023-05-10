@@ -50,8 +50,6 @@ struct NetworkManager {
     
     static func sendGet(url:URL, token: String, params: [String: Any] = [:], completion: @escaping ((_ json: JSON) -> Void), completionWithFailure: @escaping ((_ error: NSError) -> Void)) {
         
-        print("pusi kurac pederu")
-        
         let token = "Bearer \(token)"
         let headers: HTTPHeaders = [
                     "Authorization": token,
@@ -61,12 +59,9 @@ struct NetworkManager {
         print(headers)
 
          AF.request(url, method: .get, parameters: params, headers: headers).validate().responseData { data in
-             print("picketino", data, "wtf")
              
             if data.value != nil {
                 let json = JSON(data.value as Any)
-                
-                print(json)
                
                 //let status = json["status"].boolValue
                 
