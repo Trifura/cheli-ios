@@ -7,9 +7,6 @@ import SwiftUI
 
 struct ActiveView: View {
     var myCheli : FeedItem
-   // var time: String = "23 hours left"
-  //  var challenge: String = "Say Something Nice To\n5 People Today "
-    
     @State var is_completed: Bool = false
     
     var body: some View {
@@ -28,17 +25,16 @@ struct ActiveView: View {
                 .fontWeight(.bold)
                 .foregroundColor(.white)
                 .lineSpacing(16)
-                //TODO Text se ne prikazuje cijeli kada se postavi padding
-                /*.padding(.vertical, 16)
-                .lineLimit(nil)*/
             
             Text(myCheli.challenge.description)
                 .font(.system(size: 14))
                 .lineLimit(nil)
                 .fixedSize(horizontal: false, vertical: true)
                 .multilineTextAlignment(.leading)
-            
-            
+                .fontWeight(.semibold)
+                .foregroundColor(.white)
+                .padding(.top, -10)
+    
             Button(action: {
                 is_completed.toggle()
             }) {

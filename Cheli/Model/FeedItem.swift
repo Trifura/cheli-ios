@@ -10,11 +10,13 @@ import SwiftUI
 struct FeedItem: Codable, Hashable {
     var user: User
     var challenge: Challenge
+    var updatedAt: DateFormat
     
     
     init(data: [String: Any]) {
         user = User(data: data["user"] as? [String: Any] ?? [:])
         challenge = Challenge(data: data["challenge"] as? [String: Any] ?? [:])
+        updatedAt = DateFormat(data: data["updated_at"] as? [String: Any] ?? [:])
     }
 }
 
@@ -48,12 +50,18 @@ struct Challenge: Codable, Hashable {
     var title: String
     var description: String
     var createdAt: DateFormat?
+    var icon: String
+    var color: String
+    var finished: Bool
     
     init(data: [String: Any]) {
         uuid = data["uuid"] as? String ?? ""
         title = data["title"] as? String ?? ""
         description = data["description"] as? String ?? ""
         createdAt = DateFormat(data: data["created_at"] as? [String: Any] ?? [:])
+        icon = data["icon"] as? String ?? ""
+        color = data["color"] as? String ?? ""
+        finished = data["finished"] as? Bool ?? false
     }
 }
 

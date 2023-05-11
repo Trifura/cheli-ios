@@ -26,6 +26,5 @@ class FeedViewModel: ObservableObject {
             print(error)
         }
     }
-    
 }
 

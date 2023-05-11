@@ -7,8 +7,8 @@
 import SwiftUI
 
 struct HomeScreen: View {
-    var colors : [Color] = [.purple, .red, .yellow, .blue]
-    var emoji : [String] = ["☃️", "⚽️", "💕", "🌸"]
+    //var colors : [Color] = [.purple, .red, .yellow, .blue]
+    //var emoji : [String] = ["☃️", "⚽️", "💕", "🌸"]
     @StateObject var viewModel: FeedViewModel = FeedViewModel()
     @EnvironmentObject var userStore: UserStore
     
@@ -24,8 +24,8 @@ struct HomeScreen: View {
                     
                 LazyVStack(spacing: 20) {
                     //start
-                    ForEach(viewModel.feedItems, id: \.self) {item in
-                        CheliItemView(icon: emoji.randomElement() ?? "🥰", title: item.challenge.title, description: item.challenge.description, fullName: item.user.fullName)
+                    ForEach(viewModel.feedItems, id: \.self) { item in
+                        CheliItemView(icon: item.challenge.icon, title: item.challenge.title, description: item.challenge.description, fullName: item.user.fullName, updatedAt: item.updatedAt,     color: item.challenge.color)
                     }
                     
                    /* ForEach(0..<10) { _ in
@@ -51,16 +51,16 @@ struct HomeScreen: View {
     }
     
     @ViewBuilder
-    func CheliItemView(icon: String, title: String, description: String, fullName: String) -> some View {
+    func CheliItemView(icon: String, title: String, description: String, fullName: String, updatedAt: DateFormat, color: String) -> some View {
         VStack(alignment: .leading, spacing: 10){ 
             Rectangle()
-                .fill(colors.randomElement() ?? .purple)
+                .fill(Color(hex: color))
                 .frame(height: 140)
                 .padding(.horizontal, -16)
                 .padding(.top, -16)
                 .overlay {
                     Text(icon)
-                        .font(.system(size: 80))
+                        .font(.system(size: 48))
                 }
             
             Text(title)
@@ -74,7 +74,7 @@ struct HomeScreen: View {
             HStack {
                 MemberView(fullName: fullName)
                 Spacer()
-                Text("2 seconds ago")
+                Text(updatedAt.human)
                     .font(.system(size: 12))
                     .foregroundColor(Color("dark4"))
             }

@@ -8,6 +8,7 @@ import SwiftUI
 
 struct ProfileScreen: View {
     @StateObject var userModel: UserViewModel = UserViewModel()
+    @StateObject var viewModel: FeedViewModel = FeedViewModel()
     @EnvironmentObject var userStore : UserStore
     
     
@@ -27,7 +28,7 @@ struct ProfileScreen: View {
                 
                 ForEach(userModel.myInfo.challenges, id: \.self ) { cheli in
                     
-                    CheliAllCompletedChallenges(title: cheli.challenge?.title ?? "", description: cheli.challenge?.description ?? "")
+                    CheliAllCompletedChallenges(cheliItem: cheli)
                 }
             }
             .onAppear {
@@ -40,7 +41,7 @@ struct ProfileScreen: View {
     }
     
     @ViewBuilder
-    func CheliAllCompletedChallenges(title: String, description: String) -> some View {
+    func CheliAllCompletedChallenges(cheliItem: UserChallenge) -> some View {
         VStack() {
             Rectangle()
                 .frame(height: 110)
@@ -51,7 +52,7 @@ struct ProfileScreen: View {
                         .stroke(Color ("grey200"), lineWidth: 2)
                 )
                 .overlay {
-                    ProfileChallengeCompletedView(title: title, description: description)
+                    ProfileChallengeCompletedView(cheliItem: cheliItem)
                 }
         }
     }
