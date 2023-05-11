@@ -40,6 +40,7 @@ struct SearchBar: View {
             Image("search_tab_unselected")
             TextField("Search", text: $text)
                 .foregroundColor(.primary)
+                .autocapitalization(.none)
             if !text.isEmpty {
                 Button(action: {
                     self.text = ""
