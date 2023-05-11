@@ -14,6 +14,7 @@ struct NavigationView: View {
         
         TabView(selection: $selection) {
             HomeScreen()
+                .navigationBarHidden(true)
                 .tag(0)
                 .tabItem {
                     Label {
@@ -24,6 +25,7 @@ struct NavigationView: View {
                     }
                 }
             JoinScreen()
+                .navigationBarHidden(true)
                 .tag(1)
                 .tabItem {
                     Label {
@@ -34,6 +36,7 @@ struct NavigationView: View {
                     }
                 }
             ProfileScreen()
+                .navigationBarHidden(true)
                 .tag(2)
                 .tabItem {
                     Label {

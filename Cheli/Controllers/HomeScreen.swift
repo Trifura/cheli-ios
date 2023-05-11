@@ -13,6 +13,7 @@ struct HomeScreen: View {
     @EnvironmentObject var userStore: UserStore
     
     init() {
+
         //viewModel.fetchFeed(userToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjgzMTg5MjA4LCJleHAiOjE2ODM3OTQwMDh9.90p5pWNXq_DulvdSJyi88RN_wPBN81vKt4X8hvsl3ZI")
         
         viewModel.fetchFeed(userToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiNGI3YzdmNmEtZmRlMi00MjY1LWI3YTQtMGRlYTRlMGY4YjI2IiwiaWF0IjoxNjgzNTY2OTY2LCJleHAiOjE2ODQxNzE3NjZ9.zW0WHaFSN9lR5v2ZSWEe-_uSxcIZuf0lBSQx_5kdLi4")

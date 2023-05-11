@@ -11,6 +11,7 @@ struct ProfileFollowersView: View {
     let fullName: String
     let username: String
     let initials: String
+
     @State var is_following: Bool = false
 
     var body: some View {

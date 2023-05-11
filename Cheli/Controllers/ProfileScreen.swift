@@ -23,24 +23,26 @@ struct ProfileScreen: View {
                     .frame(height: 120)
                 ProfileFollowersView(fullName: userModel.myInfo.fullName, username: userModel.myInfo.username, initials: userModel.myInfo.initials)
                     .padding(.top, 24)
-                CheliProfileFollowers()
+                CheliProfileFollowers(followingCount: userModel.myInfo.followingCount, followedByCount: userModel.myInfo.followedByCount, challengesCount: userModel.myInfo.challengesCount)
                 CheliView()
-                CheliAllCompletedChallenges()
-                CheliAllUncompletedChallenges()
+                
+                /*ForEach(userModel.myInfo.challenges, id: \.self) {item in
+                    CheliAllCompletedChallenges(title: item.title, description: item.description)*/
+                }
+
             }
             .padding(.horizontal, 24)
         }
     }
-}
 
     @ViewBuilder
     //TODO Hardcoded width?
-    func CheliProfileFollowers() -> some
+    func CheliProfileFollowers(followingCount: Int, followedByCount: Int, challengesCount: Int) -> some
         View{
                 Divider()
                 HStack() {
                     VStack() {
-                        Text("45")
+                        Text(String(challengesCount))
                             .font(.system(size: 20))
                             .fontWeight(.bold)
                         Text("Cheli's")
@@ -49,7 +51,7 @@ struct ProfileScreen: View {
                     Divider()
                         //.padding(.horizontal, 12)
                     VStack() {
-                        Text("5.6M")
+                        Text(String(followedByCount))
                             .font(.system(size: 20))
                             .fontWeight(.bold)
                         Text("Followers")
@@ -58,7 +60,7 @@ struct ProfileScreen: View {
                     Divider()
                         //.padding(.horizontal, 12)
                     VStack() {
-                        Text("200")
+                        Text(String(followingCount))
                             .font(.system(size: 20))
                             .fontWeight(.bold)
                         Text("Following")
@@ -68,7 +70,7 @@ struct ProfileScreen: View {
                 Divider()
         }
 
-func CheliAllCompletedChallenges() -> some
+func CheliAllCompletedChallenges(title: String, description: String) -> some
     View {
         VStack(){
             Rectangle()
@@ -80,24 +82,7 @@ func CheliAllCompletedChallenges() -> some
                         .stroke(Color ("grey200"), lineWidth: 2)
                 )
                 .overlay {
-                    ProfileChallengeCompletedView()
-                }
-        }
-    }
-
-func CheliAllUncompletedChallenges() -> some
-    View {
-        VStack(){
-            Rectangle()
-                .frame(height: 110)
-                .foregroundColor(Color("bw"))
-                .cornerRadius(12)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 12)
-                        .stroke(Color ("grey200"), lineWidth: 2)
-                )
-                .overlay {
-                    ProfileChallengeUncompletedView()
+                    ProfileChallengeCompletedView(title: title, description: description)
                 }
         }
     }

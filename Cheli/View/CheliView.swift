@@ -10,7 +10,7 @@ import SwiftUI
 struct CheliView: View {
     var body: some View {
         HStack() {
-            Text("45 Cheli")
+            Text("Past Cheli's")
             .foregroundColor(Color("grey900"))
             .font(.system(size: 24))
             .fontWeight(.bold)

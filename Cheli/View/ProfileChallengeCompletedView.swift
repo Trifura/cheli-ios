@@ -11,6 +11,11 @@ struct ProfileChallengeCompletedView: View {
     var challenge_title: String = "Build a snowman"
     var challenge_date: String = "Today"
     var challenge_completed: String = "Completed"
+    
+    let title: String
+    let description: String
+    //let createdAt: DateFormat
+    
         var body: some View {
             HStack() {
                         Image("challenge_picture")
@@ -40,6 +45,6 @@ struct ProfileChallengeCompletedView: View {
 
 struct ProfileChallengeCompletedView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileChallengeCompletedView()
+        ProfileChallengeCompletedView(title: "Title", description: "Description"/*, createdAt: DateFormat*/)
     }
 }
