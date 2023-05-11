@@ -1,38 +1,57 @@
 import SwiftUI
 
 struct LoginView: View {
-    @State private var email: String = ""
+    @State private var username: String = ""
     @State private var password: String = ""
     @ObservedObject var viewModel: UserViewModel = UserViewModel()
-   // @State private var isLoggedIn = false
+    // @State private var isLoggedIn = false
     @EnvironmentObject var userStore: UserStore
+    @State private var showErrorAlert = false
     
     var body: some View {
         SwiftUI.NavigationView {
             VStack {
                 Text("Hello there 👋").padding(.top, 20)
                     .modifier(HeaderTextViewModifier())
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                Text("Email").modifier(FormTextViewModifier()).padding(.top, 32)
-                TextField("example@example.com", text: $email).modifier(MarginViewModifier())
+                Text("Username").modifier(FormTextViewModifier()).padding(.top, 32)
+                TextField("Enter username", text: $username).modifier(MarginViewModifier())
+                    .autocapitalization(.none)
+                Divider()
+                    .foregroundColor(Color("primary500"))
+                    .modifier(MarginViewModifier())
+                
+                
                 Text("Password").modifier(FormTextViewModifier()).padding(.top, 32)
-                SecureField("Password", text: $password).modifier(MarginViewModifier())
+                SecureField("Enter password", text: $password).modifier(MarginViewModifier())
+                Divider()
+                    .foregroundColor(Color("primary500"))
+                    .modifier(MarginViewModifier())
                 Spacer()
                 
-                Button("SIGN IN") {
-                    viewModel.loginUser(username: email, password: password) { success in
+                Button {
+                    viewModel.loginUser(username: username, password: password) { success in
                         if success {
                             print("Login successful")
                             userStore.setMainUser()
                             userStore.isLogged = true
                         } else {
                             print("Login failed")
-                            // TODO: - Show error message to user
+                            showErrorAlert = true
                         }
                     }
-                }.modifier(ButtonViewModifier())
-                
-             //   NavigationLink("", destination: NavigationView(), isActive: $isLoggedIn)
+                }label: {
+                    Text("LOGIN")
+                        .frame(maxWidth: .infinity)
+                }
+                .modifier(ButtonViewModifier())
+                .alert(isPresented: $showErrorAlert) {
+                    Alert(
+                        title: Text("Register Failed"),
+                        message: Text("Try again later."),
+                        dismissButton: .default(Text("OK"))
+                    )
+                }
+                .frame(maxWidth: .infinity)
             }
         }
     }

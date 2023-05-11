@@ -38,10 +38,10 @@ class UserViewModel: ObservableObject {
     }
     
     // MARK: - Register
-    func registerUser(name: String, username: String, email: String, password: String, completion: @escaping completionHandler) {
+    func registerUser(fullName: String, username: String, email: String, password: String, completion: @escaping completionHandler) {
         var parameters: [String: String] = [:]
         parameters = [
-            "name" : name,
+            "fullName" :fullName,
             "username" : username,
             "email" : email,
             "password" : password

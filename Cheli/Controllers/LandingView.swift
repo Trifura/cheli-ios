@@ -27,6 +27,7 @@ struct LandingView: View {
                                 .modifier(ButtonWhiteViewModifier())
                                 .padding(.bottom, 15)
                         }
+                        
                     }
                 }
                 .navigationBarTitle("")
