@@ -9,17 +9,9 @@ import SwiftUI
 struct HomeScreen: View {
     var colors : [Color] = [.purple, .red, .yellow, .blue]
     var emoji : [String] = ["☃️", "⚽️", "💕", "🌸"]
-    @ObservedObject var viewModel: FeedViewModel = FeedViewModel()
+    @StateObject var viewModel: FeedViewModel = FeedViewModel()
     @EnvironmentObject var userStore: UserStore
     
-    init() {
-
-        //viewModel.fetchFeed(userToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjgzMTg5MjA4LCJleHAiOjE2ODM3OTQwMDh9.90p5pWNXq_DulvdSJyi88RN_wPBN81vKt4X8hvsl3ZI")
-        
-        viewModel.fetchFeed(userToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiNGI3YzdmNmEtZmRlMi00MjY1LWI3YTQtMGRlYTRlMGY4YjI2IiwiaWF0IjoxNjgzNTY2OTY2LCJleHAiOjE2ODQxNzE3NjZ9.zW0WHaFSN9lR5v2ZSWEe-_uSxcIZuf0lBSQx_5kdLi4")
-        
-      //  viewModel.fetchFeed(userToken: userStore.userToken)
-    }
     
     var body: some View {
         ScrollView {
@@ -27,13 +19,13 @@ struct HomeScreen: View {
                 TitleView()
                 .padding(.top, 16)
                 .padding(.bottom, 24)
-                CheliActiveChallenge()
+                CheliActiveChallenge(viewModel: viewModel)
                 MyFeedView()
                     
                 LazyVStack(spacing: 20) {
                     //start
                     ForEach(viewModel.feedItems, id: \.self) {item in
-                        CheliItemView(icon: emoji.randomElement() ?? "🥰", title: item.challenge.title, fullName: item.user.fullName)
+                        CheliItemView(icon: emoji.randomElement() ?? "🥰", title: item.challenge.title, description: item.challenge.description, fullName: item.user.fullName)
                     }
                     
                    /* ForEach(0..<10) { _ in
@@ -43,14 +35,23 @@ struct HomeScreen: View {
                
             }
             .padding(.horizontal, 24)
-//            .onAppear {
-//
-//            }
+            .onAppear {
+                viewModel.fetchFeed(userToken: userStore.userToken)
+            }
+            .onChange(of: userStore.isLogged) { newValue in
+                if newValue == true {
+              //  if userStore.userToken != "" {
+                    print(userStore.userToken)
+                    viewModel.fetchFeed(userToken: userStore.userToken)
+                }
+                    
+               // }
+            }
         }
     }
     
     @ViewBuilder
-    func CheliItemView(icon: String, title: String, fullName: String) -> some View {
+    func CheliItemView(icon: String, title: String, description: String, fullName: String) -> some View {
         VStack(alignment: .leading, spacing: 10){ 
             Rectangle()
                 .fill(colors.randomElement() ?? .purple)
@@ -66,7 +67,10 @@ struct HomeScreen: View {
                 .foregroundColor(Color("dark4"))
                 .font(.system(size: 16, weight: .bold))
          // TODO: - remove
-            Divider()
+//            Divider()
+            Text(description)
+                .font(.system(size: 12))
+                .foregroundColor(Color("dark4").opacity(0.8))
             HStack {
                 MemberView(fullName: fullName)
                 Spacer()
@@ -80,7 +84,7 @@ struct HomeScreen: View {
     }
 }
 
-    func CheliActiveChallenge() -> some
+func CheliActiveChallenge(viewModel: FeedViewModel) -> some
         View {
             VStack(alignment: .leading, spacing: 10){
                 Rectangle()
@@ -95,8 +99,8 @@ struct HomeScreen: View {
                         RoundedRectangle(cornerRadius: 16)
                     }
                     .overlay {
-                        ActiveView()
-                            .padding(.leading, 28.0)
+                        ActiveView(myCheli: viewModel.myCheli ?? FeedItem(data: [:]))
+                            .padding(.horizontal, 28.0)
                             .padding(.top, 48.0)
                             .padding(.bottom, 42.0)
                     }

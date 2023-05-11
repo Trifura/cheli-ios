@@ -18,20 +18,21 @@ struct NetworkManager {
         ]
         
         AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).validate().responseData { data in
+          
             if data.value != nil {
                 let json = JSON(data.value as Any)
-                let status = json["status"].boolValue
-                if status {
+             //   let status = json["status"].boolValue
+             //   if status {
                     OnMainThread {
                         completion(json)
-                    }
-                }  else {
-                    OnMainThread {
-                        let message: String? = json["message"].string
-                        
-                        let error = NSError(domain: "Custom domain", code: 2, userInfo: [NSLocalizedDescriptionKey: message ?? "Something went wrong"])
-                        completionWithFailure(error)
-                    }
+             //       }
+//                }  else {
+//                    OnMainThread {
+//                        let message: String? = json["message"].string
+//
+//                        let error = NSError(domain: "Custom domain", code: 2, userInfo: [NSLocalizedDescriptionKey: message ?? "Something went wrong"])
+//                        completionWithFailure(error)
+//                    }
                 }
             } else {
                 if let data = data.data {
@@ -59,7 +60,7 @@ struct NetworkManager {
         print(headers)
 
          AF.request(url, method: .get, parameters: params, headers: headers).validate().responseData { data in
-             
+
             if data.value != nil {
                 let json = JSON(data.value as Any)
                

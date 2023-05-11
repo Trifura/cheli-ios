@@ -4,7 +4,8 @@ struct LoginView: View {
     @State private var email: String = ""
     @State private var password: String = ""
     @ObservedObject var viewModel: UserViewModel = UserViewModel()
-    @State private var isLoggedIn = false
+   // @State private var isLoggedIn = false
+    @EnvironmentObject var userStore: UserStore
     
     var body: some View {
         SwiftUI.NavigationView {
@@ -17,22 +18,21 @@ struct LoginView: View {
                 Text("Password").modifier(FormTextViewModifier()).padding(.top, 32)
                 SecureField("Password", text: $password).modifier(MarginViewModifier())
                 Spacer()
+                
                 Button("SIGN IN") {
-                    /*viewModel.loginUser(username: email, password: password) { success in
+                    viewModel.loginUser(username: email, password: password) { success in
                         if success {
                             print("Login successful")
-                            
+                            userStore.setMainUser()
+                            userStore.isLogged = true
                         } else {
                             print("Login failed")
                             // TODO: - Show error message to user
                         }
-                    }*/
-                    
-                    isLoggedIn = true
-                    
+                    }
                 }.modifier(ButtonViewModifier())
                 
-                NavigationLink("", destination: NavigationView(), isActive: $isLoggedIn)
+             //   NavigationLink("", destination: NavigationView(), isActive: $isLoggedIn)
             }
         }
     }

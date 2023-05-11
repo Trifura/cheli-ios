@@ -3,7 +3,7 @@ import Foundation
 typealias completionHandler = (_ Success: Bool) -> ()
 
 class UserViewModel: ObservableObject {
-    @Published var myInfo: User = User(data: ["username": "hrasta", "fullName": "Borna Hrastović", "email": "bhrastovic@gmail.com"])
+    @Published var myInfo: User = User(data: [:])
     
     // MARK: - Login
     func loginUser(username: String, password: String, completion: @escaping completionHandler) {
@@ -15,17 +15,18 @@ class UserViewModel: ObservableObject {
         
         NetworkManager.sendPost(url: Endpoints.login.url, token: "", parameters: parameters, completion: { (response) in
             
-            UserDefaults.standard.set(true, forKey: "isLogged")
             // TODO: - Check
             let responseData = response.dictionaryObject
             if let userToken = responseData?["token"] as? String {
+                UserDefaults.standard.set(true, forKey: "isLogged")
                 UserDefaults.standard.set(userToken, forKey: "userToken")
+                completion(true)
             }
             
-            completion(true)
+           // completion(true)
             
         }) { (error) in
-            
+            print(error.localizedDescription)
             completion(false)
         }
     }
@@ -62,14 +63,14 @@ class UserViewModel: ObservableObject {
      }
     
     // MARK: - Me
-    func getMe(/*completion: @escaping completionHandler*/) {
+    func getMe(token: String /*completion: @escaping completionHandler*/) {
         
-        NetworkManager.sendGet(url: Endpoints.me.url, token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiZWQ1Zjg0MmMtYjg4ZC00ZGVkLWJiNGUtM2Q5YmQ0NjY3NDkzIiwiaWF0IjoxNjgzNzE0OTk3LCJleHAiOjE2ODQzMTk3OTd9.-7rHhyQGlcM7p-2xLjJS9pjFOquKHeNhKIwCEyK0oY0", completion: { (response) in
+        NetworkManager.sendGet(url: Endpoints.me.url, token: token, completion: { (response) in
             
             let responseData = response.dictionaryObject
-            
             self.myInfo = User(data: responseData!)
        
+            print(self.myInfo.challenges.count)
             //completion(true)
         }) { (error) in
             

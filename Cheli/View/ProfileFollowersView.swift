@@ -8,9 +8,10 @@ import SwiftUI
 struct ProfileFollowersView: View {
     //var fullName: String = ""
     //var username: String = ""
-    let fullName: String
-    let username: String
+    var fullName: String
+    var username: String
     let initials: String
+    var showFollowButton: Bool = true
 
     @State var is_following: Bool = false
 
@@ -42,21 +43,24 @@ struct ProfileFollowersView: View {
                 }
                 .padding(.leading, 10)
                 Spacer()
-                Button(action: {
-                    is_following.toggle()
-                }) {
-                    Text(is_following ? "Following" : "Follow")
-                        .font(.system(size: 14))
-                        .fontWeight(.semibold)
-                        .foregroundColor(is_following ? Color("dark4") : .white)
-                        .frame(width: 77, height: 32)
-                        .background(Color(is_following ? "white" : "primary500"))
-                        .cornerRadius(100)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 100)
-                                .stroke(.black, lineWidth: is_following ? 2: 0)
-                        )
+                if showFollowButton {
+                    Button(action: {
+                        is_following.toggle()
+                    }) {
+                        Text(is_following ? "Following" : "Follow")
+                            .font(.system(size: 14))
+                            .fontWeight(.semibold)
+                            .foregroundColor(is_following ? Color("dark4") : .white)
+                            .frame(width: 77, height: 32)
+                            .background(Color(is_following ? "white" : "primary500"))
+                            .cornerRadius(100)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 100)
+                                    .stroke(.black, lineWidth: is_following ? 2: 0)
+                            )
+                    }
                 }
+               
 
             }
         }

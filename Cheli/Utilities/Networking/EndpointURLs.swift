@@ -23,7 +23,7 @@ enum Endpoints {
         case .register:
             baseUrl.append("auth/register")
         case .feed:
-            baseUrl.append("user/feed")
+            baseUrl.append("user/home")
         case .me:
             baseUrl.append("auth/me")
         }

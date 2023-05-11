@@ -6,15 +6,16 @@
 import SwiftUI
 
 struct ActiveView: View {
-    var time: String = "23 hours left"
-    var challenge: String = "Say Something Nice To\n5 People Today "
+    var myCheli : FeedItem
+   // var time: String = "23 hours left"
+  //  var challenge: String = "Say Something Nice To\n5 People Today "
     
     @State var is_completed: Bool = false
     
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
 
-            Text(time)
+            Text(myCheli.challenge.createdAt?.human ?? "")
                 .font(.system(size: 14))
                 .fontWeight(.semibold)
                 .foregroundColor(Color("primary500"))
@@ -22,7 +23,7 @@ struct ActiveView: View {
                 .background(.white)
                 .cornerRadius(100)
             
-            Text(challenge)
+            Text(myCheli.challenge.title)
                 .font(.system(size: 20))
                 .fontWeight(.bold)
                 .foregroundColor(.white)
@@ -30,6 +31,13 @@ struct ActiveView: View {
                 //TODO Text se ne prikazuje cijeli kada se postavi padding
                 /*.padding(.vertical, 16)
                 .lineLimit(nil)*/
+            
+            Text(myCheli.challenge.description)
+                .font(.system(size: 14))
+                .lineLimit(nil)
+                .fixedSize(horizontal: false, vertical: true)
+                .multilineTextAlignment(.leading)
+            
             
             Button(action: {
                 is_completed.toggle()
@@ -49,6 +57,6 @@ struct ActiveView: View {
 
 struct ActiveView_Previews: PreviewProvider {
     static var previews: some View {
-        ActiveView()
+        ActiveView(myCheli: FeedItem(data: [:]))
     }
 }

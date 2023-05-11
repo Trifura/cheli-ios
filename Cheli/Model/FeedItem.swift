@@ -27,7 +27,7 @@ struct User: Codable, Hashable {
     var followingCount: Int
     var followedByCount: Int
     var challengesCount: Int
-    var challenges: [UserChallenge]?
+    var challenges: [UserChallenge]
     
     
     init(data: [String: Any]) {
@@ -39,6 +39,7 @@ struct User: Codable, Hashable {
         followingCount = data["followingCount"] as? Int ?? 0
         followedByCount = data["followedByCount"] as? Int ?? 0
         challengesCount = data["challengesCount"] as? Int ?? 0
+        challenges = (data["challenges"] as? [[String: Any]] ?? []).map({ UserChallenge(data: $0) })
     }
 }
 
@@ -52,7 +53,7 @@ struct Challenge: Codable, Hashable {
         uuid = data["uuid"] as? String ?? ""
         title = data["title"] as? String ?? ""
         description = data["description"] as? String ?? ""
-        createdAt = data["createdAt"] as? DateFormat
+        createdAt = DateFormat(data: data["created_at"] as? [String: Any] ?? [:])
     }
 }
 
@@ -66,9 +67,9 @@ struct UserChallenge: Codable, Hashable {
     init(data: [String: Any]) {
         uuid = data["uuid"] as? String ?? ""
         finished = data["finished"] as? Bool ?? false
-        createdAt = data["createdAt"] as? DateFormat
-        updatedAt = data["updatedAt"] as? DateFormat
-        challenge = data["challenge"] as? Challenge
+        createdAt = data["created_at"] as? DateFormat
+        updatedAt = data["updated_at"] as? DateFormat
+        challenge = Challenge(data: data["challenge"] as? [String : Any] ?? [:])
     }
 }
 

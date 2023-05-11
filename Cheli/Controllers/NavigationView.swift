@@ -8,7 +8,8 @@ import SwiftUI
 
 struct NavigationView: View {
     @State var selection: Int = 0
-    @ObservedObject var userStore = UserStore()
+  //  @ObservedObject var userStore = UserStore()
+    @EnvironmentObject var userStore: UserStore
     
     var body: some View {
         
