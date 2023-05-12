@@ -18,6 +18,7 @@ class FeedViewModel: ObservableObject {
             self.myCheli = FeedItem(data: json["myChallenge"].dictionaryObject ?? [:])
            
             let feedData = json["feed"].arrayValue
+            self.feedItems.removeAll()
             for feed in feedData {
                 let feedItem = FeedItem(data: feed.dictionaryObject ?? [:])
                 self.feedItems.append(feedItem)
