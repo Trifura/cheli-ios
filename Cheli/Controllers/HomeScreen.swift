@@ -25,7 +25,7 @@ struct HomeScreen: View {
                 LazyVStack(spacing: 20) {
                     //start
                     ForEach(viewModel.feedItems, id: \.self) { item in
-                        CheliItemView(icon: item.challenge.icon, title: item.challenge.title, description: item.challenge.description, fullName: item.user.fullName, updatedAt: item.updatedAt,     color: item.challenge.color)
+                        CheliItemView(icon: item.challenge.icon, title: item.challenge.title, description: item.challenge.description, fullName: item.user.fullName, updatedAt: item.updatedAt, color: item.challenge.color)
                     }
                     
                    /* ForEach(0..<10) { _ in

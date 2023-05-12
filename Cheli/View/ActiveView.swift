@@ -8,11 +8,13 @@ import SwiftUI
 struct ActiveView: View {
     var myCheli : FeedItem
     @State var is_completed: Bool = false
+    @StateObject var viewModel: FeedViewModel = FeedViewModel()
+    @EnvironmentObject var userStore: UserStore
     
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
 
-            Text(myCheli.challenge.createdAt?.human ?? "")
+            Text(myCheli.timeLeft)
                 .font(.system(size: 14))
                 .fontWeight(.semibold)
                 .foregroundColor(Color("primary500"))
@@ -36,14 +38,16 @@ struct ActiveView: View {
                 .padding(.top, -10)
     
             Button(action: {
-                is_completed.toggle()
+                viewModel.completeChallenge(challengeId: myCheli.uuid, userToken: userStore.userToken)
+                is_completed = true
+               
             }) {
                 Text(is_completed ? "Completed" : "Complete")
                     .font(.system(size: 16))
                     .fontWeight(.bold)
                     .foregroundColor(.white)
                     .frame(width: 220, height: 32)
-                    .background(Color(is_completed ? "grey700" : "primary500"))
+                    .background(Color(is_completed ? "success" : "primary500"))
                     .cornerRadius(100)
             }
         }
