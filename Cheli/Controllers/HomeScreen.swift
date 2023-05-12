@@ -25,7 +25,7 @@ struct HomeScreen: View {
                 LazyVStack(spacing: 20) {
                     //start
                     ForEach(viewModel.feedItems, id: \.self) { item in
-                        CheliItemView(icon: item.challenge.icon, title: item.challenge.title, description: item.challenge.description, fullName: item.user.fullName, updatedAt: item.updatedAt, color: item.challenge.color)
+                        CheliItemView(icon: item.challenge.icon, title: item.challenge.title, description: item.challenge.description, fullName: item.user.fullName, updatedAt: item.updatedAt, color: item.challenge.color,initials:  item.user.initials)
                     }
                     
                    /* ForEach(0..<10) { _ in
@@ -51,7 +51,7 @@ struct HomeScreen: View {
     }
     
     @ViewBuilder
-    func CheliItemView(icon: String, title: String, description: String, fullName: String, updatedAt: DateFormat, color: String) -> some View {
+    func CheliItemView(icon: String, title: String, description: String, fullName: String, updatedAt: DateFormat, color: String, initials: String) -> some View {
         VStack(alignment: .leading, spacing: 10){ 
             Rectangle()
                 .fill(Color(hex: color))
@@ -72,7 +72,7 @@ struct HomeScreen: View {
                 .font(.system(size: 12))
                 .foregroundColor(Color("dark4").opacity(0.8))
             HStack {
-                MemberView(fullName: fullName)
+                MemberView(fullName: fullName, initials: initials)
                 Spacer()
                 Text(updatedAt.human)
                     .font(.system(size: 12))
