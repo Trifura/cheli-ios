@@ -16,13 +16,13 @@ struct JoinScreen: View {
                 SearchBar(text: $searchText)
                 PeopleView()
              //   ForEach(0..<4) { _ in
-                    ProfileFollowersView(fullName: "Ema Kuevija", username: "emica03", initials: "EK")
+                    ProfileFollowersView(fullName: "Ema Kurevija", username: "emica03", initials: "EK", showSignOutButton: false)
                         .padding(.bottom, 24)
                 
-                ProfileFollowersView(fullName: "Patricia Vujnovac", username: "pataosk", initials: "PV")
+                ProfileFollowersView(fullName: "Patricia Vujnovac", username: "pataosk", initials: "PV", showSignOutButton: false)
                     .padding(.bottom, 24)
                 
-                ProfileFollowersView(fullName: "Nikol Šarac", username: "nikidgo", initials: "NŠ")
+                ProfileFollowersView(fullName: "Nikol Šarac", username: "nikidgo", initials: "NŠ", showSignOutButton: false)
                     .padding(.bottom, 24)
               //  }
                     //.padding(.top, 24)

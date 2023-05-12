@@ -11,12 +11,18 @@ struct FeedItem: Codable, Hashable {
     var user: User
     var challenge: Challenge
     var updatedAt: DateFormat
+    var uuid: String
+    var finished: Bool
+    var timeLeft: String
     
     
     init(data: [String: Any]) {
         user = User(data: data["user"] as? [String: Any] ?? [:])
         challenge = Challenge(data: data["challenge"] as? [String: Any] ?? [:])
         updatedAt = DateFormat(data: data["updated_at"] as? [String: Any] ?? [:])
+        uuid = data["uuid"] as? String ?? ""
+        finished = data["finished"] as? Bool ?? false
+        timeLeft = data["time_left"] as? String ?? ""
     }
 }
 

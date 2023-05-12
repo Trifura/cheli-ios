@@ -12,6 +12,7 @@ enum Endpoints {
     case register
     case feed
     case me
+    case completeChallenge
     
     var url : URL {
         
@@ -26,6 +27,8 @@ enum Endpoints {
             baseUrl.append("user/home")
         case .me:
             baseUrl.append("auth/me")
+        case .completeChallenge:
+            baseUrl.append("challenge/complete")
         }
         return URL(string: baseUrl) ?? URL(string: "")!
     }

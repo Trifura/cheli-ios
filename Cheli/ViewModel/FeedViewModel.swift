@@ -26,5 +26,17 @@ class FeedViewModel: ObservableObject {
             print(error)
         }
     }
+    
+    func completeChallenge(challengeId: String, userToken: String){
+        let url = "\(Endpoints.completeChallenge.url)/\(challengeId)"
+        NetworkManager.sendPost(url: URL(string: url) ?? Endpoints.completeChallenge.url, token: userToken, parameters: [:]) { json in
+            
+            //self.myCheli = FeedItem(data: json.dictionaryObject ?? [:])
+            print(json)
+
+        } completionWithFailure: { error in
+            print(error)
+        }
+    }
 }
 
