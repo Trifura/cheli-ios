@@ -46,7 +46,7 @@ struct LoginView: View {
                 .modifier(ButtonViewModifier())
                 .alert(isPresented: $showErrorAlert) {
                     Alert(
-                        title: Text("Register Failed"),
+                        title: Text("Login Failed"),
                         message: Text("Try again later."),
                         dismissButton: .default(Text("OK"))
                     )
