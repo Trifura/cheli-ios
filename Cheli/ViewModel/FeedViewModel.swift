@@ -16,7 +16,7 @@ class FeedViewModel: ObservableObject {
         NetworkManager.sendGet(url: Endpoints.feed.url, token: userToken) { json in
             
             self.myCheli = FeedItem(data: json["myChallenge"].dictionaryObject ?? [:])
-           
+            
             let feedData = json["feed"].arrayValue
             self.feedItems.removeAll()
             for feed in feedData {

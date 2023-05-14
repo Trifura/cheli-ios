@@ -36,26 +36,20 @@ struct ActiveView: View {
                 .fontWeight(.semibold)
                 .foregroundColor(.white)
                 .padding(.top, -10)
+
             
             Button(action: {
                 viewModel.completeChallenge(challengeId: myCheli.uuid, userToken: userStore.userToken)
                 is_completed = true
                 
             }) {
-                Text(is_completed ? "Completed" : "Complete")
+                Text(is_completed || myCheli.finished ? "Completed" : "Complete")
                     .font(.system(size: 16))
                     .fontWeight(.bold)
                     .foregroundColor(.white)
                     .frame(width: 220, height: 32)
-                    .background(Color(is_completed ? "success" : "primary500"))
+                    .background(Color(is_completed || myCheli.finished  ? "success" : "primary500"))
                     .cornerRadius(100)
-            }
-            .onAppear {
-                if (myCheli.finished) {
-                    is_completed = true
-                } else {
-                    is_completed = false
-                }
             }
         }
         .frame(maxWidth: .infinity,  alignment: .leading)
