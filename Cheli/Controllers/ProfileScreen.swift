@@ -22,7 +22,6 @@ struct ProfileScreen: View {
                     .resizable()
                     .frame(height: 120)
                     .onAppear {
-                        print("KURAC")
                         userModel.getMe(token: userStore.userToken)
                     }
                 ProfileFollowersView(fullName: userModel.myInfo.fullName, username: userModel.myInfo.username, initials: userModel.myInfo.initials, showFollowButton: false)

@@ -14,45 +14,47 @@ struct HomeScreen: View {
     
     
     var body: some View {
-        ScrollView {
-            VStack {
-                TitleView()
-                .padding(.top, 16)
-                .padding(.bottom, 24)
-                CheliActiveChallenge(viewModel: viewModel)
-                MyFeedView()
+        if (userStore.isLogged) {
+            ScrollView {
+                VStack {
+                    TitleView()
+                        .padding(.top, 16)
+                        .padding(.bottom, 24)
+                    CheliActiveChallenge(viewModel: viewModel)
+                    MyFeedView()
                     
-                LazyVStack(spacing: 20) {
-                    //start
-                    ForEach(viewModel.feedItems, id: \.self) { item in
-                        CheliItemView(icon: item.challenge.icon, title: item.challenge.title, finished: item.finished, fullName: item.user.fullName, updatedAt: item.updatedAt, color: item.challenge.color,initials:  item.user.initials)
+                    LazyVStack(spacing: 20) {
+                        //start
+                        ForEach(viewModel.feedItems, id: \.self) { item in
+                            CheliItemView(icon: item.challenge.icon, title: item.challenge.title, finished: item.finished, fullName: item.user.fullName, updatedAt: item.updatedAt, color: item.challenge.color,initials:  item.user.initials)
+                        }
+                        
+                        /* ForEach(0..<10) { _ in
+                         CheliItemView(icon: emoji.randomElement() ?? "🥰", title: "Build a Snowman With a Bunch of Your Friends In an Hour!!!")
+                         } */
                     }
                     
-                   /* ForEach(0..<10) { _ in
-                        CheliItemView(icon: emoji.randomElement() ?? "🥰", title: "Build a Snowman With a Bunch of Your Friends In an Hour!!!")
-                    } */
                 }
-               
-            }
-            .padding(.horizontal, 24)
-            .onAppear {
-                viewModel.fetchFeed(userToken: userStore.userToken)
-            }
-            .onChange(of: userStore.isLogged) { newValue in
-                if newValue == true {
-              //  if userStore.userToken != "" {
-                    print(userStore.userToken)
+                .padding(.horizontal, 24)
+                .onAppear {
                     viewModel.fetchFeed(userToken: userStore.userToken)
                 }
+                .onChange(of: userStore.isLogged) { newValue in
+                    if newValue == true {
+                        //  if userStore.userToken != "" {
+                        print(userStore.userToken)
+                        viewModel.fetchFeed(userToken: userStore.userToken)
+                    }
                     
-               // }
+                    // }
+                }
             }
         }
     }
     
     @ViewBuilder
     func CheliItemView(icon: String, title: String, finished: Bool, fullName: String, updatedAt: DateFormat, color: String, initials: String) -> some View {
-        VStack(alignment: .leading, spacing: 10){ 
+        VStack(alignment: .leading, spacing: 10){
             Rectangle()
                 .fill(Color(hex: color))
                 .frame(height: 140)
@@ -66,8 +68,8 @@ struct HomeScreen: View {
             Text(title)
                 .foregroundColor(Color("dark4"))
                 .font(.system(size: 16, weight: .bold))
-         // TODO: - remove
-//            Divider()
+            // TODO: - remove
+            //            Divider()
             Text(finished ? "Completed" : "Not completed")
                 .font(.system(size: 12))
                 .foregroundColor(Color("dark4").opacity(0.8))
@@ -79,7 +81,7 @@ struct HomeScreen: View {
                     .foregroundColor(Color("dark4"))
             }
         }
-            
+        
         .modifier(ContainerViewModifier())
     }
 }
