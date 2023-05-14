@@ -21,6 +21,10 @@ struct ProfileScreen: View {
                 Image("profile_background")
                     .resizable()
                     .frame(height: 120)
+                    .onAppear {
+                        print("KURAC")
+                        userModel.getMe(token: userStore.userToken)
+                    }
                 ProfileFollowersView(fullName: userModel.myInfo.fullName, username: userModel.myInfo.username, initials: userModel.myInfo.initials, showFollowButton: false)
                     .padding(.top, 24)
                 CheliProfileFollowers(followingCount: userModel.myInfo.followingCount, followedByCount: userModel.myInfo.followedByCount, challengesCount: userModel.myInfo.challengesCount)
@@ -31,13 +35,8 @@ struct ProfileScreen: View {
                     CheliAllCompletedChallenges(cheliItem: cheli)
                 }
             }
-            .onAppear {
-                userModel.getMe(token: userStore.userToken)
-            }
-            
         }
         .padding(.horizontal, 24)
-        
     }
     
     @ViewBuilder
@@ -93,7 +92,7 @@ struct ProfileScreen: View {
     }
 }
 
-   
+
 
 
 
