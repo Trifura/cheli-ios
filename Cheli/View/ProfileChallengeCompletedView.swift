@@ -37,7 +37,7 @@ struct ProfileChallengeCompletedView: View {
                             .font(.system(size: 10))
                             .fontWeight(.medium)
                             .foregroundColor(Color("grey700"))
-                        Text(cheliItem.challenge?.finished ?? false ? "Completed" : "Not completed")
+                        Text(cheliItem.finished ? "Completed" : "Not completed")
                             .font(.system(size: 10))
                             .fontWeight(.semibold)
                             .foregroundColor(Color("grey800"))
