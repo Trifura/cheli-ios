@@ -26,7 +26,7 @@ struct RegisterView: View {
                 .modifier(HeaderTextViewModifier())
             
             
-            Text("Please enter your fullfullName, username, email address and password. If you forget it, then you have to do forgot password.")
+            Text("Please enter your full name, username, email address and password. If you forget it, then you have to do forgot password.")
                 .modifier(MarginViewModifier())
                 .padding(.top, 20)
                 .font(.system(size: 18))

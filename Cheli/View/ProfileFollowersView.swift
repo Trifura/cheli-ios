@@ -16,6 +16,7 @@ struct ProfileFollowersView: View {
     
     @State var is_following: Bool = false
     @EnvironmentObject var userStore: UserStore
+    @ObservedObject var viewModel: UserViewModel = UserViewModel()
     
     var body: some View {
         HStack {
@@ -68,6 +69,7 @@ struct ProfileFollowersView: View {
             if showSignOutButton {
                 Button(action: {
                     userStore.isLogged = false
+                    viewModel.logoutUser()
                 }) {
                     Text("Sign out")
                         .font(.system(size: 14))
