@@ -1,11 +1,11 @@
 //
-//  JoinScreen.swift
+//  SearchScreen.swift
 //  Cheli
 //
 
 import SwiftUI
 
-struct JoinScreen: View {
+struct SearchScreen: View {
     @State private var searchText = ""
     var body: some View {
         ScrollView {
@@ -32,9 +32,9 @@ struct JoinScreen: View {
     }
 }
 
-struct JoinScreen_Previews: PreviewProvider {
+struct SearchScreen_Previews: PreviewProvider {
     static var previews: some View {
-        JoinScreen()
+        SearchScreen()
     }
 }
 

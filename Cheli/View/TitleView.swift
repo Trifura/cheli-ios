@@ -14,6 +14,12 @@ struct TitleView: View {
             Text("Cheli")
                 .font(.system(size: 24, weight: .bold))
                 .foregroundColor(Color("grey900"))
+            Spacer()
+            NavigationLink(destination: (FollowRequestsView())){
+                Image("add_user")
+                    .frame(width: 24, height: 24)
+            }
+            
         }
         .frame(maxWidth: .infinity, alignment: .leading)
     }

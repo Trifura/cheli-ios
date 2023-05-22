@@ -25,7 +25,7 @@ struct NavigationView: View {
                                 .foregroundColor(Color("dark4"))
                         }
                     }
-                JoinScreen()
+                SearchScreen()
                     .navigationBarHidden(true)
                     .tag(1)
                     .tabItem {

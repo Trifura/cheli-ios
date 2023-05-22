@@ -1,12 +1,6 @@
-//
-//  ProfileScreen.swift
-//  Cheli
-//
-
-
 import SwiftUI
 
-struct ProfileScreen: View {
+struct ClickedUserView: View {
     @StateObject var userModel: UserViewModel = UserViewModel()
     @StateObject var viewModel: FeedViewModel = FeedViewModel()
     @EnvironmentObject var userStore : UserStore
@@ -93,13 +87,8 @@ struct ProfileScreen: View {
     }
 }
 
-
-
-
-
-
-struct ProfileScreen_Previews: PreviewProvider {
+struct ClickedUserView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileScreen()
+        ClickedUserView()
     }
 }

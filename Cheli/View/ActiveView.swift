@@ -26,7 +26,9 @@ struct ActiveView: View {
                 .font(.system(size: 20))
                 .fontWeight(.bold)
                 .foregroundColor(.white)
-                .lineSpacing(16)
+                .lineLimit(nil)
+                .fixedSize(horizontal: false, vertical: true)
+                .multilineTextAlignment(.leading)
             
             Text(myCheli.challenge.description)
                 .font(.system(size: 14))
