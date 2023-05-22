@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		52D471132A1A9096003846AD /* ConfirmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D471122A1A9096003846AD /* ConfirmView.swift */; };
 		930A9CD729F6B21500F22AEA /* CheliApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930A9CD629F6B21500F22AEA /* CheliApp.swift */; };
 		930A9CD929F6B21500F22AEA /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930A9CD829F6B21500F22AEA /* NavigationView.swift */; };
 		930A9CDB29F6B21500F22AEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 930A9CDA29F6B21500F22AEA /* Assets.xcassets */; };
@@ -53,6 +54,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		52D471122A1A9096003846AD /* ConfirmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmView.swift; sourceTree = "<group>"; };
 		930A9CD329F6B21500F22AEA /* Cheli.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cheli.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		930A9CD629F6B21500F22AEA /* CheliApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheliApp.swift; sourceTree = "<group>"; };
 		930A9CD829F6B21500F22AEA /* NavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationView.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				930A9CED29F6BB6400F22AEA /* HomeScreen.swift */,
 				930A9CEF29F6BBA000F22AEA /* SearchScreen.swift */,
 				EED7E6D22A010523004FBA9B /* ProfileScreen.swift */,
+				52D471122A1A9096003846AD /* ConfirmView.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 				AFCACBCE2A0551AC00BAE4EA /* BackView.swift in Sources */,
 				EE4C81E52A02B7B900653103 /* ProfileChallengeCompletedView.swift in Sources */,
 				AFCACBD42A05521300BAE4EA /* LandingView.swift in Sources */,
+				52D471132A1A9096003846AD /* ConfirmView.swift in Sources */,
 				AFCACBC92A05516A00BAE4EA /* ButtonViewModifier.swift in Sources */,
 				AF9EDB662A1BC22B00C42103 /* CommentsTextView.swift in Sources */,
 				EE3CA3602A01990C00BF5294 /* ProfileFollowersView.swift in Sources */,
@@ -485,7 +489,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Cheli/Preview Content\"";
-				DEVELOPMENT_TEAM = B5P423MNLU;
+				DEVELOPMENT_TEAM = 9RW596Q5Q8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cheli/Info.plist;
@@ -519,7 +523,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Cheli/Preview Content\"";
-				DEVELOPMENT_TEAM = B5P423MNLU;
+				DEVELOPMENT_TEAM = 9RW596Q5Q8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cheli/Info.plist;

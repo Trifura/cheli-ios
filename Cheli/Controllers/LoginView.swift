@@ -3,8 +3,8 @@ import SwiftUI
 struct LoginView: View {
     @State private var username: String = ""
     @State private var password: String = ""
+    @State private var isShowingPassword = false
     @ObservedObject var viewModel: UserViewModel = UserViewModel()
-    // @State private var isLoggedIn = false
     @EnvironmentObject var userStore: UserStore
     @State private var showErrorAlert = false
     
@@ -22,7 +22,22 @@ struct LoginView: View {
                 
                 
                 Text("Password").modifier(FormTextViewModifier()).padding(.top, 32)
-                SecureField("Enter password", text: $password).modifier(MarginViewModifier())
+                HStack {
+                    if isShowingPassword {
+                        TextField("Enter password", text: $password)
+                            .autocapitalization(.none)
+                    } else {
+                        SecureField("Enter password", text: $password)
+                    }
+                    Button(action: {
+                        // toggling password visibility
+                        self.isShowingPassword.toggle()
+                    }) {
+                        Image(systemName: self.isShowingPassword ? "eye.slash.fill" : "eye.fill")
+                    }
+                }
+                .modifier(MarginViewModifier())
+                
                 Divider()
                     .foregroundColor(Color("primary500"))
                     .modifier(MarginViewModifier())
@@ -46,7 +61,7 @@ struct LoginView: View {
                 .modifier(ButtonViewModifier())
                 .alert(isPresented: $showErrorAlert) {
                     Alert(
-                        title: Text("Register Failed"),
+                        title: Text("Login Failed"),
                         message: Text("Try again later."),
                         dismissButton: .default(Text("OK"))
                     )
