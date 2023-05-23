@@ -8,6 +8,11 @@ struct LoginView: View {
     @EnvironmentObject var userStore: UserStore
     @State private var showErrorAlert = false
     
+    var isFormComplete: Bool {
+        return !username.isEmpty && !password.isEmpty
+        
+    }
+    
     var body: some View {
         SwiftUI.NavigationView {
             VStack {
@@ -19,7 +24,6 @@ struct LoginView: View {
                 Divider()
                     .foregroundColor(Color("primary500"))
                     .modifier(MarginViewModifier())
-                
                 
                 Text("Password").modifier(FormTextViewModifier()).padding(.top, 32)
                 HStack {
@@ -34,6 +38,7 @@ struct LoginView: View {
                         self.isShowingPassword.toggle()
                     }) {
                         Image(systemName: self.isShowingPassword ? "eye.slash.fill" : "eye.fill")
+                            .foregroundColor(.black) // Set the button's foreground color to black
                     }
                 }
                 .modifier(MarginViewModifier())
@@ -58,7 +63,7 @@ struct LoginView: View {
                     Text("LOGIN")
                         .frame(maxWidth: .infinity)
                 }
-                .modifier(ButtonViewModifier())
+                .modifier(ButtonLoginRegisterModifier(isFormComplete: isFormComplete))
                 .alert(isPresented: $showErrorAlert) {
                     Alert(
                         title: Text("Login Failed"),
@@ -68,6 +73,7 @@ struct LoginView: View {
                 }
                 .frame(maxWidth: .infinity)
             }
+            .disabled(!isFormComplete)
         }
     }
 }

@@ -9,24 +9,31 @@ struct RegisterView: View {
     @State private var isPasswordValid: Bool = true
     @State private var showErrorAlert = false
     @State private var showConfirmView = false
-
+    
     @ObservedObject var viewModel: UserViewModel = UserViewModel()
     @EnvironmentObject var userStore: UserStore
-
+    
+    
+    
+    var isFormComplete: Bool {
+        return !fullName.isEmpty && !username.isEmpty && !email.isEmpty && !password.isEmpty && !confirmPassword.isEmpty
+    }
+    
+    
     var body: some View {
         SwiftUI.NavigationView {
             VStack {
                 Text("Create an account ✏️")
                     .padding(.top, 24)
                     .modifier(HeaderTextViewModifier())
-
+                
                 Text("Please enter your full name, username, email address, and password. If you forget it, then you have to do forgot password.")
                     .modifier(MarginViewModifier())
                     .padding(.top, 20)
                     .font(.system(size: 18))
                     .multilineTextAlignment(.center)
                     .frame(maxWidth: .infinity, alignment: .center)
-
+                
                 // Full Name
                 Group {
                     Text("Full Name")
@@ -38,7 +45,7 @@ struct RegisterView: View {
                         .foregroundColor(Color("primary500"))
                         .modifier(MarginViewModifier())
                 }
-
+                
                 // Username
                 Group {
                     Text("Username")
@@ -51,7 +58,7 @@ struct RegisterView: View {
                         .foregroundColor(Color("primary500"))
                         .modifier(MarginViewModifier())
                 }
-
+                
                 // Email
                 Group {
                     Text("Email")
@@ -64,7 +71,7 @@ struct RegisterView: View {
                         .foregroundColor(Color("primary500"))
                         .modifier(MarginViewModifier())
                 }
-
+                
                 // Password
                 Group {
                     Text("Password")
@@ -77,7 +84,7 @@ struct RegisterView: View {
                         .foregroundColor(Color("primary500"))
                         .modifier(MarginViewModifier())
                 }
-
+                
                 // Confirm Password
                 Group {
                     Text("Confirm Password")
@@ -90,9 +97,9 @@ struct RegisterView: View {
                         .foregroundColor(Color("primary500"))
                         .modifier(MarginViewModifier())
                 }
-
+                
                 Spacer()
-
+                
                 NavigationLink(destination: ConfirmView(), isActive: $showConfirmView) {
                     Button {
                         if password == confirmPassword {
@@ -112,17 +119,12 @@ struct RegisterView: View {
                         Text("SIGN IN")
                             .frame(maxWidth: .infinity)
                     }
-                    .modifier(ButtonViewModifier())
-                    .alert(isPresented: $showErrorAlert) {
-                        Alert(
-                            title: Text("Register Failed"),
-                            message: Text("Try again later."),
-                            dismissButton: .default(Text("OK"))
-                        )
-                    }
+                    .modifier(ButtonLoginRegisterModifier(isFormComplete: isFormComplete))
                     .frame(maxWidth: .infinity)
                 }
+                .disabled(!isFormComplete)
             }
+            
             .navigationBarHidden(true)
             .padding(.horizontal)
             .navigationBarBackButtonHidden(true)

@@ -8,9 +8,9 @@ import SwiftUI
 
 @main
 struct CheliApp: App {
-    
+
     @ObservedObject var userStore: UserStore = UserStore()
-    
+
     var body: some Scene {
         WindowGroup {
 //            if userStore.isLogged {
@@ -20,7 +20,7 @@ struct CheliApp: App {
 //                LandingView()
 //                    .environmentObject(userStore)
 //            }
-            
+
             NavigationView()
                 .environmentObject(userStore)
                 .fullScreenCover(isPresented: !$userStore.isLogged) {
@@ -39,3 +39,21 @@ prefix func ! (value: Binding<Bool>) -> Binding<Bool> {
     )
 }
 
+
+//
+//
+//
+//import SwiftUI
+//
+//@main
+//struct CheliApp: App {
+//    @ObservedObject var userStore: UserStore = UserStore()
+//
+//    var body: some Scene {
+//        WindowGroup {
+//            SwiftUI.NavigationView {
+//                ConfirmView()
+//            }
+//        }
+//    }
+//}

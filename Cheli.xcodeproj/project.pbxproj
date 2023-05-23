@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		52D471132A1A9096003846AD /* ConfirmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D471122A1A9096003846AD /* ConfirmView.swift */; };
+		52D471152A1D40AF003846AD /* ButtonLoginRegisterModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D471142A1D40AF003846AD /* ButtonLoginRegisterModifier.swift */; };
 		930A9CD729F6B21500F22AEA /* CheliApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930A9CD629F6B21500F22AEA /* CheliApp.swift */; };
 		930A9CD929F6B21500F22AEA /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930A9CD829F6B21500F22AEA /* NavigationView.swift */; };
 		930A9CDB29F6B21500F22AEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 930A9CDA29F6B21500F22AEA /* Assets.xcassets */; };
@@ -55,6 +56,7 @@
 
 /* Begin PBXFileReference section */
 		52D471122A1A9096003846AD /* ConfirmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmView.swift; sourceTree = "<group>"; };
+		52D471142A1D40AF003846AD /* ButtonLoginRegisterModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonLoginRegisterModifier.swift; sourceTree = "<group>"; };
 		930A9CD329F6B21500F22AEA /* Cheli.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cheli.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		930A9CD629F6B21500F22AEA /* CheliApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheliApp.swift; sourceTree = "<group>"; };
 		930A9CD829F6B21500F22AEA /* NavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationView.swift; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 				AFCACBC32A05516900BAE4EA /* HeaderTextViewModifier.swift */,
 				AFCACBC62A05516A00BAE4EA /* MarginViewModifier.swift */,
 				930A9CF329F6BF6900F22AEA /* ContainerViewModifier.swift */,
+				52D471142A1D40AF003846AD /* ButtonLoginRegisterModifier.swift */,
 			);
 			path = ViewModifiers;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 				AFA57C1D2A0D30CF00C932C6 /* Extensions.swift in Sources */,
 				930A9CF429F6BF6900F22AEA /* ContainerViewModifier.swift in Sources */,
 				EED7E6D32A010523004FBA9B /* ProfileScreen.swift in Sources */,
+				52D471152A1D40AF003846AD /* ButtonLoginRegisterModifier.swift in Sources */,
 				930F9ADD2A03E62600A856A6 /* UserViewModel.swift in Sources */,
 				AF01DF4E2A17DC230078781E /* AcceptFollowRequests.swift in Sources */,
 				EED7E6CF2A010469004FBA9B /* TitleProfileView.swift in Sources */,
@@ -504,7 +508,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.c.Cheli;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cheli.Cheli;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -538,7 +542,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.c.Cheli;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cheli.Cheli;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
