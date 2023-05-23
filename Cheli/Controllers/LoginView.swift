@@ -72,8 +72,8 @@ struct LoginView: View {
                     )
                 }
                 .frame(maxWidth: .infinity)
+                .disabled(!isFormComplete)
             }
-            .disabled(!isFormComplete)
         }
     }
 }
