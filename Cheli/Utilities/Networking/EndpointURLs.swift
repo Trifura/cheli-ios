@@ -16,7 +16,7 @@ enum Endpoints {
     
     var url : URL {
         
-        var baseUrl = "https://cheli-api.onrender.com/v1/"
+        var baseUrl = "https://cheli-api.onrender.com/v2/"
         
         switch self {
         case .login:

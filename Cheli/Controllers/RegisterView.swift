@@ -103,7 +103,7 @@ struct RegisterView: View {
                 NavigationLink(destination: ConfirmView(), isActive: $showConfirmView) {
                     Button {
                         if password == confirmPassword {
-                            viewModel.registerUser(fullName: fullName, username: username, email: email, password: password) { success in
+                            viewModel.registerUser(fullName: fullName, username: username, email: email, password: password, confirmPassword: confirmPassword) { success in
                                 if success {
                                     print("Register successful")
                                     showConfirmView = true // Navigate to ConfirmView

@@ -38,13 +38,14 @@ class UserViewModel: ObservableObject {
     }
     
     // MARK: - Register
-    func registerUser(fullName: String, username: String, email: String, password: String, completion: @escaping completionHandler) {
+    func registerUser(fullName: String, username: String, email: String, password: String, confirmPassword: String, completion: @escaping completionHandler) {
         var parameters: [String: String] = [:]
         parameters = [
             "fullName" :fullName,
             "username" : username,
             "email" : email,
-            "password" : password
+            "password" : password,
+            "confirmPassword": confirmPassword
         ]
         
         NetworkManager.sendPost(url: Endpoints.register.url, token: "", parameters: parameters, completion: { (response) in
