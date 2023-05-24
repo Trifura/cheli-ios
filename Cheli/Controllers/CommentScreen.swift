@@ -9,13 +9,43 @@ import SwiftUI
 
 struct CommentScreen: View {
     var body: some View {
-        ScrollView {
-            VStack {
-                CommentsTextView()
+        VStack {
+            ScrollView {
+                VStack {
+                    CommentsTextView()
+                    /*AcceptFollowRequests(initials: "EK", fullName: "Ema Kurevija", username: "emica03")
+                        .padding(.bottom, 24)
+                    
+                    AcceptFollowRequests(initials: "EK", fullName: "Ema Kurevija", username: "emica03")
+                        .padding(.bottom, 24)
+                    
+                    AcceptFollowRequests(initials: "EK", fullName: "Ema Kurevija", username: "emica03")
+                        .padding(.bottom, 24)
+                    
+                    AcceptFollowRequests(initials: "EK", fullName: "Ema Kurevija", username: "emica03")
+                        .padding(.bottom, 24)
+                    
+                    AcceptFollowRequests(initials: "EK", fullName: "Ema Kurevija", username: "emica03")
+                        .padding(.bottom, 24)
+                    
+                    AcceptFollowRequests(initials: "EK", fullName: "Ema Kurevija", username: "emica03")
+                        .padding(.bottom, 24)
+                    
+                    AcceptFollowRequests(initials: "EK", fullName: "Ema Kurevija", username: "emica03")
+                        .padding(.bottom, 24)
+                    
+                    AcceptFollowRequests(initials: "EK", fullName: "Ema Kurevija", username: "emica03")
+                        .padding(.bottom, 24)
+                    
+                    AcceptFollowRequests(initials: "EK", fullName: "Ema Kurevija", username: "emica03")
+                        .padding(.bottom, 24)*/
+                }
+                .padding(.horizontal, 24)
+                .frame(maxWidth: .infinity, alignment: .leading)
             }
-            .padding(.horizontal, 24)
-            .frame(maxWidth: .infinity, alignment: .leading)
+            AddCommentView(initials: "JK")
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
 
