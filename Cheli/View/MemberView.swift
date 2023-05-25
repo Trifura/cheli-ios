@@ -6,6 +6,7 @@
 import SwiftUI
 
 struct MemberView: View {
+    let id: String
     let fullName: String
     let initials: String
     
@@ -16,7 +17,7 @@ struct MemberView: View {
             // .backgrounbd()
             // .mask {Circle()}
             
-            NavigationLink(destination: (ClickedUserView())){
+            NavigationLink(destination: (ClickedUserView(userId: id))){
                 Image("")
                     .resizable()
                     .frame(width: 20, height: 20)
@@ -31,7 +32,7 @@ struct MemberView: View {
                     )
             }
             
-            NavigationLink(destination: (ClickedUserView())){
+            NavigationLink(destination: (ClickedUserView(userId: id))){
                 Text(fullName)
                     .font(.system(size: 12))
                     .foregroundColor(Color("dark4"))
@@ -42,6 +43,6 @@ struct MemberView: View {
 
 struct MemberView_Previews: PreviewProvider {
     static var previews: some View {
-        MemberView(fullName: "John Doe", initials: "JD")
+        MemberView(id: "random", fullName: "John Doe", initials: "JD")
     }
 }

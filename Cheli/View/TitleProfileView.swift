@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct TitleProfileView: View {
+    
+    var showNotificationButton: Bool = true
     var body: some View {
         HStack(spacing: 17) {
             Image("logo")
@@ -17,9 +19,11 @@ struct TitleProfileView: View {
                 .font(.system(size: 24, weight: .bold))
                 .foregroundColor(Color("grey900"))
             Spacer()
-            NavigationLink(destination: (FollowRequestsView())){
-                Image("add_user")
-                    .frame(width: 24, height: 24)
+            if showNotificationButton {
+                NavigationLink(destination: FollowRequestsView()) {
+                    Image("add_user")
+                        .frame(width: 24, height: 24)
+                }
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)

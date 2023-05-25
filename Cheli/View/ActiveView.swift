@@ -6,7 +6,7 @@
 import SwiftUI
 
 struct ActiveView: View {
-    var myCheli : FeedItem
+    var myCheli : CheliPost
     @State var is_completed: Bool = false
     @StateObject var viewModel: FeedViewModel = FeedViewModel()
     @EnvironmentObject var userStore: UserStore
@@ -22,7 +22,7 @@ struct ActiveView: View {
                 .background(.white)
                 .cornerRadius(100)
             
-            Text(myCheli.challenge.title)
+            Text(myCheli.cheli.title)
                 .font(.system(size: 20))
                 .fontWeight(.bold)
                 .foregroundColor(.white)
@@ -30,7 +30,7 @@ struct ActiveView: View {
                 .fixedSize(horizontal: false, vertical: true)
                 .multilineTextAlignment(.leading)
             
-            Text(myCheli.challenge.description)
+            Text(myCheli.cheli.description)
                 .font(.system(size: 14))
                 .lineLimit(nil)
                 .fixedSize(horizontal: false, vertical: true)
@@ -41,16 +41,16 @@ struct ActiveView: View {
 
             
             Button(action: {
-                viewModel.completeChallenge(challengeId: myCheli.uuid, userToken: userStore.userToken)
+                viewModel.completeCheli(challengeId: myCheli.id, userToken: userStore.userToken)
                 is_completed = true
                 
             }) {
-                Text(is_completed || myCheli.finished ? "Completed" : "Complete")
+                Text(is_completed || myCheli.isCompleted ? "Completed" : "Complete")
                     .font(.system(size: 16))
                     .fontWeight(.bold)
                     .foregroundColor(.white)
                     .frame(width: 220, height: 32)
-                    .background(Color(is_completed || myCheli.finished  ? "success" : "primary500"))
+                    .background(Color(is_completed || myCheli.isCompleted  ? "success" : "primary500"))
                     .cornerRadius(100)
             }
         }
@@ -60,6 +60,6 @@ struct ActiveView: View {
 
 struct ActiveView_Previews: PreviewProvider {
     static var previews: some View {
-        ActiveView(myCheli: FeedItem(data: [:]))
+        ActiveView(myCheli: CheliPost(data: [:]))
     }
 }

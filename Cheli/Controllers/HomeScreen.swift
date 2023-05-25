@@ -29,7 +29,7 @@ struct HomeScreen: View {
                         LazyVStack(spacing: 20) {
                             //start
                             ForEach(viewModel.feedItems, id: \.self) { item in
-                                CheliItemView(icon: item.challenge.icon, title: item.challenge.title, finished: item.finished, fullName: item.user.fullName, updatedAt: item.updatedAt, color: item.challenge.color,initials:  item.user.initials)
+                                CheliItemView(icon: item.activeCheli.cheli.icon, title: item.activeCheli.cheli.title, finished: item.activeCheli.isCompleted, fullName: item.fullName, updatedAt: item.activeCheli.updatedAt, color: item.activeCheli.cheli.color,initials:  item.initials, id: item.id)
                             }
                             
                             /* ForEach(0..<10) { _ in
@@ -57,7 +57,7 @@ struct HomeScreen: View {
     }
     
     @ViewBuilder
-    func CheliItemView(icon: String, title: String, finished: Bool, fullName: String, updatedAt: DateFormat, color: String, initials: String) -> some View {
+    func CheliItemView(icon: String, title: String, finished: Bool, fullName: String, updatedAt: DateFormat, color: String, initials: String, id: String) -> some View {
         VStack(alignment: .leading, spacing: 10){
             Rectangle()
                 .fill(Color(hex: color))
@@ -84,7 +84,7 @@ struct HomeScreen: View {
             }
             Divider()
             HStack {
-                MemberView(fullName: fullName, initials: initials)
+                MemberView(id: id, fullName: fullName, initials: initials)
                 Spacer()
                 Button(action: {
                      //button action povezati sa apijem
@@ -125,7 +125,7 @@ func CheliActiveChallenge(viewModel: FeedViewModel) -> some
                         RoundedRectangle(cornerRadius: 16)
                     }
                     .overlay {
-                        ActiveView(myCheli: viewModel.myCheli ?? FeedItem(data: [:]))
+                        ActiveView(myCheli: viewModel.myCheli ?? CheliPost(data: [:]))
                             .padding(.horizontal, 28.0)
                             .padding(.top, 48.0)
                             .padding(.bottom, 42.0)
