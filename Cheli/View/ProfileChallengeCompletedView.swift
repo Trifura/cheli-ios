@@ -28,9 +28,12 @@ struct ProfileChallengeCompletedView: View {
                         .font(.system(size: 48))
                 }
                     
-                    VStack(alignment: .leading, spacing: 12) {
+                    VStack(alignment: .leading, spacing: 10) {
                         Text(cheliItem.cheli.title)
-                            .font(.system(size: 18))
+                            .font(.system(size: 14))
+                            .lineLimit(nil)
+                            .fixedSize(horizontal: false, vertical: true)
+                            .multilineTextAlignment(.leading)
                             .fontWeight(.bold)
                             .foregroundColor(Color("grey900"))
                         Text(cheliItem.createdAt.human)
