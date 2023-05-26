@@ -8,37 +8,13 @@
 import SwiftUI
 
 struct CommentScreen: View {
+    @State private var commentText: String = ""
     var body: some View {
         VStack {
             ScrollView {
                 VStack {
                     CommentsTextView()
-                    /*AcceptFollowRequests(initials: "EK", fullName: "Ema Kurevija", username: "emica03")
-                        .padding(.bottom, 24)
-                    
-                    AcceptFollowRequests(initials: "EK", fullName: "Ema Kurevija", username: "emica03")
-                        .padding(.bottom, 24)
-                    
-                    AcceptFollowRequests(initials: "EK", fullName: "Ema Kurevija", username: "emica03")
-                        .padding(.bottom, 24)
-                    
-                    AcceptFollowRequests(initials: "EK", fullName: "Ema Kurevija", username: "emica03")
-                        .padding(.bottom, 24)
-                    
-                    AcceptFollowRequests(initials: "EK", fullName: "Ema Kurevija", username: "emica03")
-                        .padding(.bottom, 24)
-                    
-                    AcceptFollowRequests(initials: "EK", fullName: "Ema Kurevija", username: "emica03")
-                        .padding(.bottom, 24)
-                    
-                    AcceptFollowRequests(initials: "EK", fullName: "Ema Kurevija", username: "emica03")
-                        .padding(.bottom, 24)
-                    
-                    AcceptFollowRequests(initials: "EK", fullName: "Ema Kurevija", username: "emica03")
-                        .padding(.bottom, 24)
-                    
-                    AcceptFollowRequests(initials: "EK", fullName: "Ema Kurevija", username: "emica03")
-                        .padding(.bottom, 24)*/
+                    CommentView(initials: "JK", username: "johndoe", comment: "This is a comment.")
                 }
                 .padding(.horizontal, 24)
                 .frame(maxWidth: .infinity, alignment: .leading)

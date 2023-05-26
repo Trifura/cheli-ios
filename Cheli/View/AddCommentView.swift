@@ -50,7 +50,7 @@ struct AddCommentView: View {
                         .stroke(Color.gray, lineWidth: 1)
                 )
             }
-            .padding(.horizontal, 24) // Apply horizontal padding to the HStack
+            .padding(.horizontal, 24)
         }
     }
     
