@@ -5,28 +5,30 @@ struct ClickedUserView: View {
     @StateObject var viewModel: FeedViewModel = FeedViewModel()
     @EnvironmentObject var userStore : UserStore
     
+    var userId: String
+    
     
     var body: some View {
         SwiftUI.NavigationView{
             ScrollView {
                 VStack() {
-                    TitleProfileView()
+                    TitleProfileView(showNotificationButton: false)
                         .padding(.top, 16)
                         .padding(.bottom, 24)
                     Image("profile_background")
                         .resizable()
                         .frame(height: 120)
                         .onAppear {
-                            userModel.getMe(token: userStore.userToken)
+                            userModel.getUser(userId: userId, token: userStore.userToken)
                         }
-                    ProfileFollowersView(fullName: userModel.myInfo.fullName, username: userModel.myInfo.username, initials: userModel.myInfo.initials, showFollowButton: false)
+                    ProfileFollowersView(fullName: userModel.userInfo.fullName, username: userModel.userInfo.username, initials: userModel.userInfo.initials, showFollowButton: false, showSignOutButton: false)
                         .padding(.top, 24)
-                    CheliProfileFollowers(followingCount: userModel.myInfo.followingCount, followedByCount: userModel.myInfo.followedByCount, challengesCount: userModel.myInfo.challengesCount)
+                    CheliProfileFollowers(followingCount: userModel.userInfo.followingCount, followersCount: userModel.userInfo.followersCount, cheliPostsCount: userModel.userInfo.cheliPostsCount)
                     CheliView()
                     
-                    ForEach(userModel.myInfo.challenges, id: \.self ) { cheli in
+                    ForEach(userModel.userInfo.cheliPosts, id: \.self ) { cheli in
                         
-                        CheliAllCompletedChallenges(cheliItem: cheli)
+                        CheliAllCompletedcheliPosts(cheliItem: cheli)
                     }
                 }
                 .padding(.horizontal, 24)
@@ -35,7 +37,7 @@ struct ClickedUserView: View {
     }
     
     @ViewBuilder
-    func CheliAllCompletedChallenges(cheliItem: UserChallenge) -> some View {
+    func CheliAllCompletedcheliPosts(cheliItem: CheliPost) -> some View {
         VStack() {
             Rectangle()
                 .frame(height: 110)
@@ -53,12 +55,12 @@ struct ClickedUserView: View {
     
     @ViewBuilder
     //TODO Hardcoded width?
-    func CheliProfileFollowers(followingCount: Int, followedByCount: Int, challengesCount: Int) -> some
+    func CheliProfileFollowers(followingCount: Int, followersCount: Int, cheliPostsCount: Int) -> some
     View {
         Divider()
         HStack() {
             VStack() {
-                Text(String(challengesCount))
+                Text(String(cheliPostsCount))
                     .font(.system(size: 20))
                     .fontWeight(.bold)
                 Text("Cheli's")
@@ -67,7 +69,7 @@ struct ClickedUserView: View {
             Divider()
             //.padding(.horizontal, 12)
             VStack() {
-                Text(String(followedByCount))
+                Text(String(followersCount))
                     .font(.system(size: 20))
                     .fontWeight(.bold)
                 Text("Followers")
@@ -89,6 +91,6 @@ struct ClickedUserView: View {
 
 struct ClickedUserView_Previews: PreviewProvider {
     static var previews: some View {
-        ClickedUserView()
+        ClickedUserView(userId: "random")
     }
 }

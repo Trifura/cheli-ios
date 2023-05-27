@@ -4,6 +4,7 @@ typealias completionHandler = (_ Success: Bool) -> ()
 
 class UserViewModel: ObservableObject {
     @Published var myInfo: User = User(data: [:])
+    @Published var userInfo: User = User(data: [:])
     
     // MARK: - Login
     func loginUser(username: String, password: String, completion: @escaping completionHandler) {
@@ -71,7 +72,22 @@ class UserViewModel: ObservableObject {
             let responseData = response.dictionaryObject
             self.myInfo = User(data: responseData!)
        
-            print(self.myInfo.challenges.count)
+            print(self.myInfo.cheliPosts.count)
+            //completion(true)
+        }) { (error) in
+            
+            //completion(false)
+        }
+    }
+    
+    func getUser(userId: String, token: String /*completion: @escaping completionHandler*/) {
+        let url = "\(Endpoints.getUser.url)/\(userId)"
+        NetworkManager.sendGet(url: URL(string: url) ?? Endpoints.getUser.url, token: token, completion: { (response) in
+            
+            let responseData = response.dictionaryObject
+            self.userInfo = User(data: responseData!)
+       
+            print(self.myInfo.cheliPosts.count)
             //completion(true)
         }) { (error) in
             

@@ -27,12 +27,12 @@ struct ProfileScreen: View {
                         }
                     ProfileFollowersView(fullName: userModel.myInfo.fullName, username: userModel.myInfo.username, initials: userModel.myInfo.initials, showFollowButton: false)
                         .padding(.top, 24)
-                    CheliProfileFollowers(followingCount: userModel.myInfo.followingCount, followedByCount: userModel.myInfo.followedByCount, challengesCount: userModel.myInfo.challengesCount)
+                    CheliProfileFollowers(followingCount: userModel.myInfo.followingCount, followersCount: userModel.myInfo.followersCount, cheliPostsCount: userModel.myInfo.cheliPostsCount)
                     CheliView()
                     
-                    ForEach(userModel.myInfo.challenges, id: \.self ) { cheli in
+                    ForEach(userModel.myInfo.cheliPosts, id: \.self ) { cheli in
                         
-                        CheliAllCompletedChallenges(cheliItem: cheli)
+                        CheliAllCompletedcheliPosts(cheliItem: cheli)
                     }
                 }
                 .padding(.horizontal, 24)
@@ -41,7 +41,7 @@ struct ProfileScreen: View {
     }
     
     @ViewBuilder
-    func CheliAllCompletedChallenges(cheliItem: UserChallenge) -> some View {
+    func CheliAllCompletedcheliPosts(cheliItem: CheliPost) -> some View {
         VStack() {
             Rectangle()
                 .frame(height: 110)
@@ -59,12 +59,12 @@ struct ProfileScreen: View {
     
     @ViewBuilder
     //TODO Hardcoded width?
-    func CheliProfileFollowers(followingCount: Int, followedByCount: Int, challengesCount: Int) -> some
+    func CheliProfileFollowers(followingCount: Int, followersCount: Int, cheliPostsCount: Int) -> some
     View {
         Divider()
         HStack() {
             VStack() {
-                Text(String(challengesCount))
+                Text(String(cheliPostsCount))
                     .font(.system(size: 20))
                     .fontWeight(.bold)
                 Text("Cheli's")
@@ -73,7 +73,7 @@ struct ProfileScreen: View {
             Divider()
             //.padding(.horizontal, 12)
             VStack() {
-                Text(String(followedByCount))
+                Text(String(followersCount))
                     .font(.system(size: 20))
                     .fontWeight(.bold)
                 Text("Followers")
