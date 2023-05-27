@@ -54,6 +54,12 @@ struct LoginView: View {
                             print("Login successful")
                             userStore.setMainUser()
                             userStore.isLogged = true
+                            
+                            
+                            let contentView = NavigationView()
+                                .environmentObject(userStore)
+                            UIApplication.shared.windows.first?.rootViewController = UIHostingController(rootView: contentView)
+                            UIApplication.shared.windows.first?.makeKeyAndVisible()
                         } else {
                             print("Login failed")
                             showErrorAlert = true
