@@ -38,7 +38,7 @@ struct LoginView: View {
                         self.isShowingPassword.toggle()
                     }) {
                         Image(systemName: self.isShowingPassword ? "eye.slash.fill" : "eye.fill")
-                            .foregroundColor(.black) // Set the button's foreground color to black
+                            .foregroundColor(Color("blackWhite")
                     }
                 }
                 .modifier(MarginViewModifier())
@@ -66,8 +66,8 @@ struct LoginView: View {
                 .modifier(ButtonLoginRegisterModifier(isFormComplete: isFormComplete))
                 .alert(isPresented: $showErrorAlert) {
                     Alert(
-                        title: Text("Login Failed"),
-                        message: Text("Try again later."),
+                        title: Text("Try again."),
+                        message: Text("Wrong username or password"),
                         dismissButton: .default(Text("OK"))
                     )
                 }
