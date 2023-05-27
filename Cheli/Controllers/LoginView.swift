@@ -38,7 +38,7 @@ struct LoginView: View {
                         self.isShowingPassword.toggle()
                     }) {
                         Image(systemName: self.isShowingPassword ? "eye.slash.fill" : "eye.fill")
-                            .foregroundColor(Color("blackWhite")
+                            .foregroundColor(Color("blackWhite"))
                     }
                 }
                 .modifier(MarginViewModifier())
