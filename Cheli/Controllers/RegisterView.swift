@@ -9,6 +9,8 @@ struct RegisterView: View {
     @State private var isPasswordValid: Bool = true
     @State private var showErrorAlert = false
     @State private var showConfirmView = false
+    @State private var isEmailValid: Bool = true
+    
     
     @ObservedObject var viewModel: UserViewModel = UserViewModel()
     @EnvironmentObject var userStore: UserStore
@@ -19,9 +21,19 @@ struct RegisterView: View {
         return !fullName.isEmpty && !username.isEmpty && !email.isEmpty && !password.isEmpty && !confirmPassword.isEmpty
     }
     
+    func isValidEmail(_ email: String) -> Bool {
+        let emailRegex = "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+        let emailPredicate = NSPredicate(format: "SELF MATCHES %@", emailRegex)
+        let isValid = emailPredicate.evaluate(with: email)
+        isEmailValid = isValid // Update the isEmailValid state
+        return isValid
+    }
+    
+    
     
     var body: some View {
         SwiftUI.NavigationView {
+            //            ScrollView {
             VStack {
                 Text("Create an account ✏️")
                     .padding(.top, 24)
@@ -62,6 +74,7 @@ struct RegisterView: View {
                 // Email
                 Group {
                     Text("Email")
+                        .foregroundColor(isEmailValid ? .primary : .red)
                         .modifier(FormTextViewModifier())
                         .padding(.top, 32)
                     TextField("Enter your email", text: $email)
@@ -75,7 +88,7 @@ struct RegisterView: View {
                 // Password
                 Group {
                     Text("Password")
-                        .foregroundColor(isPasswordValid ? .primary : .red)
+                        .foregroundColor(isPasswordValid ? .primary : .red) // Set password text color based on validity
                         .modifier(FormTextViewModifier())
                         .padding(.top, 32)
                     SecureField("Enter your password", text: $password)
@@ -88,7 +101,7 @@ struct RegisterView: View {
                 // Confirm Password
                 Group {
                     Text("Confirm Password")
-                        .foregroundColor(isPasswordValid ? .primary : .red)
+                        .foregroundColor(isPasswordValid ? .primary : .red) // Set confirm password text color based on validity
                         .modifier(FormTextViewModifier())
                         .padding(.top, 32)
                     SecureField("Confirm your password", text: $confirmPassword)
@@ -102,18 +115,20 @@ struct RegisterView: View {
                 
                 NavigationLink(destination: ConfirmView(), isActive: $showConfirmView) {
                     Button {
-                        if password == confirmPassword {
+                        if password == confirmPassword && isValidEmail(email){
                             viewModel.registerUser(fullName: fullName, username: username, email: email, password: password, confirmPassword: confirmPassword) { success in
                                 if success {
                                     print("Register successful")
                                     showConfirmView = true // Navigate to ConfirmView
                                 } else {
-                                    print("Register failed")
-                                    showErrorAlert = true
+                                    if email != confirmPassword {
+                                        isEmailValid = false // Set email text color to red
+                                    }
+                                    isPasswordValid = false // Set password and confirm password text color to red
                                 }
                             }
                         } else {
-                            isPasswordValid = false
+                          
                         }
                     } label: {
                         Text("SIGN IN")
@@ -122,12 +137,17 @@ struct RegisterView: View {
                     .modifier(ButtonLoginRegisterModifier(isFormComplete: isFormComplete))
                     .frame(maxWidth: .infinity)
                 }
-                .disabled(!isFormComplete)
+                .disabled(!isFormComplete) // Disable button if the form is incomplete or email is not valid
             }
             
             .navigationBarHidden(true)
             .padding(.horizontal)
             .navigationBarBackButtonHidden(true)
+            .onTapGesture {
+                // Dismiss the keyboard when tapped anywhere on the screen
+                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+            }
         }
+        //        }
     }
 }
