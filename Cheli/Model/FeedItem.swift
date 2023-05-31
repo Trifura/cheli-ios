@@ -101,3 +101,17 @@ struct DateFormat: Codable, Hashable {
     }
 }
 
+struct FollowRequest: Codable, Hashable {
+    var id: String
+    var createdAt: DateFormat
+    var updatedAt: DateFormat
+    var follower: User
+    
+    init(data: [String: Any]) {
+        id = data["id"] as? String ?? "some-random-id"
+        createdAt = DateFormat(data: data["createdAt"] as? [String: Any] ?? [:])
+        updatedAt = DateFormat(data: data["updatedAt"] as? [String: Any] ?? [:])
+        follower = User(data: data["follower"] as? [String : Any] ?? [:])
+    }
+}
+

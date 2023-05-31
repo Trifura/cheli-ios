@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct AcceptFollowRequests: View {
-    let initials: String
-    var fullName: String
-    var username: String
+    var followRequest: FollowRequest
     
     var body: some View {
         HStack {
@@ -20,7 +18,7 @@ struct AcceptFollowRequests: View {
                 .background(Color.red)
                 .mask(Circle().frame(height: 50).foregroundColor(.red))
                 .overlay(
-                    Text(initials)
+                    Text(followRequest.follower.initials)
                         .font(.system(size: 20, weight: .bold))
                         .foregroundColor(.white)
                         .frame(width: 60, height: 60)
@@ -28,17 +26,17 @@ struct AcceptFollowRequests: View {
             
             VStack(alignment: .leading) {
                 
-                Text(fullName)
+                Text(followRequest.follower.fullName)
                     .font(.system(size: 15, weight: .bold))
                 +
                 Text(" requested to follow you.")
                     .font(.system(size: 15))
                     .foregroundColor(Color("grey900"))
                 
-                    /*.padding(.bottom, 0.5)
-                Text("@"+username)
-                    .font(.system(size: 14, weight: .medium))
-                    .foregroundColor(Color("grey700"))*/
+                /*.padding(.bottom, 0.5)
+                 Text("@"+username)
+                 .font(.system(size: 14, weight: .medium))
+                 .foregroundColor(Color("grey700"))*/
                 
             }
             //.padding(.leading, 10)
@@ -72,9 +70,9 @@ struct AcceptFollowRequests: View {
         }
     }
 }
-    
-    struct AcceptFollowRequests_Previews: PreviewProvider {
-        static var previews: some View {
-            AcceptFollowRequests(initials: "JD", fullName: "John Doe", username: "johndoe")
-        }
+
+struct AcceptFollowRequests_Previews: PreviewProvider {
+    static var previews: some View {
+        AcceptFollowRequests(followRequest: FollowRequest(data: nil ?? ["defaultKey": "defaultValue"]))
     }
+}

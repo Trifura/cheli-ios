@@ -5,6 +5,7 @@ typealias completionHandler = (_ Success: Bool) -> ()
 class UserViewModel: ObservableObject {
     @Published var myInfo: User = User(data: [:])
     @Published var userInfo: User = User(data: [:])
+    @Published var followRequest: [FollowRequest] = []
     
     // MARK: - Login
     func loginUser(username: String, password: String, completion: @escaping completionHandler) {
@@ -24,7 +25,7 @@ class UserViewModel: ObservableObject {
                 completion(true)
             }
             
-           // completion(true)
+            // completion(true)
             
         }) { (error) in
             print(error.localizedDescription)
@@ -61,8 +62,8 @@ class UserViewModel: ObservableObject {
         }) { (error) in
             
             completion(false)
-           }
-     }
+        }
+    }
     
     // MARK: - Me
     func getMe(token: String /*completion: @escaping completionHandler*/) {
@@ -71,7 +72,7 @@ class UserViewModel: ObservableObject {
             
             let responseData = response.dictionaryObject
             self.myInfo = User(data: responseData!)
-       
+            
             print(self.myInfo.cheliPosts.count)
             //completion(true)
         }) { (error) in
@@ -86,8 +87,26 @@ class UserViewModel: ObservableObject {
             
             let responseData = response.dictionaryObject
             self.userInfo = User(data: responseData!)
-       
+            
             print(self.myInfo.cheliPosts.count)
+            //completion(true)
+        }) { (error) in
+            
+            //completion(false)
+        }
+    }
+    
+    func getNotifications(token: String) {
+        
+        NetworkManager.sendGet(url: Endpoints.notifications.url, token: token, completion: { (response) in
+            
+            let requestData = response.arrayValue
+            self.followRequest.removeAll()
+            
+            for request in requestData {
+                let requestItem = FollowRequest(data: request.dictionaryObject ?? [:])
+                self.followRequest.append(requestItem)
+            }
             //completion(true)
         }) { (error) in
             

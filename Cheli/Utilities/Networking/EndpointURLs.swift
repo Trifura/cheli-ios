@@ -14,6 +14,7 @@ enum Endpoints {
     case me
     case completeCheli
     case getUser
+    case notifications
     
     var url : URL {
         
@@ -32,6 +33,8 @@ enum Endpoints {
             baseUrl.append("cheli-post/complete")
         case .getUser:
             baseUrl.append("user")
+        case .notifications:
+            baseUrl.append("user/follow/notifications")
         }
         return URL(string: baseUrl) ?? URL(string: "")!
     }
