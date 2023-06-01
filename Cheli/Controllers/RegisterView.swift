@@ -42,7 +42,7 @@ struct RegisterView: View {
                         .multilineTextAlignment(.center)
                         .frame(maxWidth: .infinity, alignment: .center)
                     
-                    // Full Name
+                    // MARK: - Full Name
                     Group {
                         Text("Full Name")
                             .modifier(FormTextViewModifier())
@@ -54,7 +54,7 @@ struct RegisterView: View {
                             .modifier(MarginViewModifier())
                     }
                     
-                    // Username
+                    // MARK: - Username
                     Group {
                         Text("Username")
                             .modifier(FormTextViewModifier())
@@ -67,7 +67,7 @@ struct RegisterView: View {
                             .modifier(MarginViewModifier())
                     }
                     
-                    // Email
+                    // MARK: - Email
                     Group {
                         Text("Email")
                             .foregroundColor(isEmailValid ? .primary : .red)
@@ -81,7 +81,7 @@ struct RegisterView: View {
                             .modifier(MarginViewModifier())
                     }
                     
-                    // Password
+                    // MARK: - Password
                     Group {
                         Text("Password")
                             .foregroundColor(isPasswordValid ? .primary : .red) // Set password text color based on validity
@@ -94,7 +94,7 @@ struct RegisterView: View {
                             .modifier(MarginViewModifier())
                     }
                     
-                    // Confirm Password
+                    // MARK: - Confirm Password
                     Group {
                         Text("Confirm Password")
                             .foregroundColor(isPasswordValid ? .primary : .red) // Set confirm password text color based on validity
@@ -109,6 +109,7 @@ struct RegisterView: View {
                     
                     Spacer()
                     
+                    // MARK: - Sign In Button
                     NavigationLink(destination: ConfirmView(), isActive: $showConfirmView) {
                         Button {
                             if password == confirmPassword && isValidEmail(email) {

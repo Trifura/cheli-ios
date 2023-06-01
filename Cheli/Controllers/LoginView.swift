@@ -18,14 +18,23 @@ struct LoginView: View {
             VStack {
                 Text("Hello there 👋").padding(.top, 20)
                     .modifier(HeaderTextViewModifier())
-                Text("Username").modifier(FormTextViewModifier()).padding(.top, 32)
-                TextField("Enter username", text: $username).modifier(MarginViewModifier())
+                    .modifier(MarginViewModifier())
+                Text("Username")
+                    .modifier(FormTextViewModifier())
+                    .padding(.top, 32)
+                    .modifier(MarginViewModifier())
+                TextField("Enter username", text: $username)
                     .autocapitalization(.none)
+                    .modifier(MarginViewModifier())
+                    .modifier(MarginViewModifier())
                 Divider()
                     .foregroundColor(Color("primary500"))
                     .modifier(MarginViewModifier())
                 
-                Text("Password").modifier(FormTextViewModifier()).padding(.top, 32)
+                Text("Password")
+                    .modifier(FormTextViewModifier())
+                    .padding(.top, 32)
+                    .modifier(MarginViewModifier())
                 HStack {
                     if isShowingPassword {
                         TextField("Enter password", text: $password)
@@ -34,13 +43,13 @@ struct LoginView: View {
                         SecureField("Enter password", text: $password)
                     }
                     Button(action: {
-                        // toggling password visibility
                         self.isShowingPassword.toggle()
                     }) {
                         Image(systemName: self.isShowingPassword ? "eye.slash.fill" : "eye.fill")
                             .foregroundColor(Color("blackWhite"))
                     }
                 }
+                .modifier(MarginViewModifier())
                 .modifier(MarginViewModifier())
                 
                 Divider()
@@ -79,6 +88,7 @@ struct LoginView: View {
                 }
                 .frame(maxWidth: .infinity)
                 .disabled(!isFormComplete)
+                .modifier(MarginViewModifier())
             }
         }
     }
