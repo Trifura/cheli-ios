@@ -10,10 +10,11 @@ import SwiftUI
 struct PeopleView: View {
     var body: some View {
         HStack() {
-            Text("People you may know")
+            Text("No results found")
             .foregroundColor(Color("grey900"))
             .font(.system(size: 24))
             .fontWeight(.bold)
+            .multilineTextAlignment(.center)
             
             
         }

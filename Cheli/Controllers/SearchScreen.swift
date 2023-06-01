@@ -1,12 +1,14 @@
 import SwiftUI
 
-
+class SearchState: ObservableObject {
+    @Published var searchText = ""
+}
 
 struct SearchScreen: View {
-    @State private var searchText = ""
     @StateObject private var userModel = UserViewModel()
-    @State private var searchResults: [User] = []
     @StateObject var userStore: UserStore = UserStore()
+    @StateObject private var searchState = SearchState()
+    @State private var searchResults: [User] = []
     
     var body: some View {
         ScrollView {
@@ -14,13 +16,14 @@ struct SearchScreen: View {
                 TitleFindView()
                     .padding(.top, 16)
                     .padding(.bottom, 24)
-                SearchBar(text: $searchText, onSearch: performSearch)
+                SearchBar(text: $searchState.searchText, onSearch: performSearch)
+                    .padding(.bottom, 24)
                 if searchResults.isEmpty {
                     PeopleView()
                 } else {
                     ForEach(searchResults, id: \.self) { user in
                         ProfileFollowersView(fullName: user.fullName, username: user.username, initials: user.initials, showSignOutButton: false)
-                            .padding(.bottom, 24)
+                            .padding(.bottom, 14)
                             .onTapGesture {
                                 navigateToClickedUserView(userId: user.id)
                             }
@@ -28,17 +31,24 @@ struct SearchScreen: View {
                 }
             }
             .padding(.horizontal, 24)
+            .onChange(of: searchState.searchText) { searchText in
+                performSearch()
+            }
             .onAppear {
                 userModel.getMe(token: userStore.userToken)
+                performSearch()
             }
         }
     }
     
     func performSearch() {
-        if searchText.isEmpty {
-            searchResults = []
+        if searchState.searchText.isEmpty {
+            // Perform search with a space in the background
+            userModel.searchUsers(username: " ") { users in
+                searchResults = users
+            }
         } else {
-            userModel.searchUsers(username: searchText) { users in
+            userModel.searchUsers(username: searchState.searchText) { users in
                 searchResults = users
             }
         }
@@ -50,14 +60,6 @@ struct SearchScreen: View {
         }
     }
 }
-
-struct SearchScreen_Previews: PreviewProvider {
-    static var previews: some View {
-        SearchScreen()
-            .environmentObject(UserStore())
-    }
-}
-
 
 struct SearchBar: View {
     @Binding var text: String
@@ -81,5 +83,9 @@ struct SearchBar: View {
         .padding(8)
         .background(Color(.systemGray5))
         .cornerRadius(8)
+        .onAppear {
+            
+            text = "" // Set the initial search text to an empty string
+        }
     }
 }
