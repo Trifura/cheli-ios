@@ -71,14 +71,6 @@ struct SearchBar: View {
             TextField("Search", text: $text, onCommit: onSearch)
                 .foregroundColor(.primary)
                 .autocapitalization(.none)
-            if !text.isEmpty {
-                Button(action: {
-                    self.text = ""
-                }) {
-                    Image(systemName: "xmark.circle.fill")
-                }
-                .foregroundColor(.primary)
-            }
         }
         .padding(8)
         .background(Color(.systemGray5))
