@@ -96,6 +96,36 @@ class UserViewModel: ObservableObject {
         }
     }
     
+    func searchUsers(username: String, completion: @escaping ([User]) -> Void) {
+        let parameters: [String: String] = [
+            "username": username
+        ]
+        
+        guard let userToken = UserDefaults.standard.string(forKey: "userToken") else {
+            completion([])
+            return
+        }
+        
+        NetworkManager.sendGet(url: Endpoints.searchUsers.url, token: userToken, parameters: parameters) { response in
+            // Handle the response...
+
+            let responseData = response.arrayValue
+            var users: [User] = []
+            
+            for userData in responseData {
+                let user = User(data: userData.dictionaryObject ?? [:])
+                users.append(user)
+            }
+            
+            completion(users)
+        } failure: { error in
+            print(error.localizedDescription)
+            completion([])
+        }
+    }
+
+    
+    
     func getNotifications(token: String) {
         
         NetworkManager.sendGet(url: Endpoints.notifications.url, token: token, completion: { (response) in
