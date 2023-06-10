@@ -54,6 +54,12 @@ struct SearchScreen: View {
         }
     }
     
+    
+    
+    
+    
+    
+    
     func navigateToClickedUserView(userId: String) {
         SwiftUI.NavigationLink(destination: ClickedUserView(userId: userId)) {
             EmptyView()

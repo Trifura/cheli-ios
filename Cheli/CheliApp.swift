@@ -39,21 +39,3 @@ prefix func ! (value: Binding<Bool>) -> Binding<Bool> {
     )
 }
 
-
-//
-//
-//
-//import SwiftUI
-//
-//@main
-//struct CheliApp: App {
-//    @ObservedObject var userStore: UserStore = UserStore()
-//
-//    var body: some Scene {
-//        WindowGroup {
-//            SwiftUI.NavigationView {
-//                ConfirmView()
-//            }
-//        }
-//    }
-//}

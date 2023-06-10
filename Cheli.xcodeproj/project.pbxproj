@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		52C3650E2A3227BA00666FBD /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C3650D2A3227BA00666FBD /* ImagePickerView.swift */; };
 		52D471132A1A9096003846AD /* ConfirmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D471122A1A9096003846AD /* ConfirmView.swift */; };
 		52D471152A1D40AF003846AD /* ButtonLoginRegisterModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D471142A1D40AF003846AD /* ButtonLoginRegisterModifier.swift */; };
 		930A9CD729F6B21500F22AEA /* CheliApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930A9CD629F6B21500F22AEA /* CheliApp.swift */; };
@@ -57,6 +58,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		52C3650D2A3227BA00666FBD /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
 		52D471122A1A9096003846AD /* ConfirmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmView.swift; sourceTree = "<group>"; };
 		52D471142A1D40AF003846AD /* ButtonLoginRegisterModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonLoginRegisterModifier.swift; sourceTree = "<group>"; };
 		930A9CD329F6B21500F22AEA /* Cheli.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cheli.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -248,6 +250,7 @@
 				AFCACBC62A05516A00BAE4EA /* MarginViewModifier.swift */,
 				930A9CF329F6BF6900F22AEA /* ContainerViewModifier.swift */,
 				52D471142A1D40AF003846AD /* ButtonLoginRegisterModifier.swift */,
+				52C3650D2A3227BA00666FBD /* ImagePickerView.swift */,
 			);
 			path = ViewModifiers;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 				AFCACBC92A05516A00BAE4EA /* ButtonViewModifier.swift in Sources */,
 				AF9EDB662A1BC22B00C42103 /* CommentsTextView.swift in Sources */,
 				EE3CA3602A01990C00BF5294 /* ProfileFollowersView.swift in Sources */,
+				52C3650E2A3227BA00666FBD /* ImagePickerView.swift in Sources */,
 				AFBA3F392A212F4600927550 /* CommentView.swift in Sources */,
 				EED7E6CD29FF46B9004FBA9B /* MyFeedView.swift in Sources */,
 				AFA4A4AC2A09550B00BAF566 /* PeopleView.swift in Sources */,
