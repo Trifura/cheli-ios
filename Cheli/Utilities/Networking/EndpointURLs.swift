@@ -1,7 +1,3 @@
-//
-//  EndpointURLs.swift
-//  Treblle v2
-//
 
 
 import Foundation

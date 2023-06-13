@@ -1,8 +1,3 @@
-//
-//  ContentView.swift
-//  Cheli
-//
-
 
 import SwiftUI
 

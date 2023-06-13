@@ -1,9 +1,4 @@
-//
-//  FollowRequestsTextView.swift
-//  Cheli
-//
-//  Created by Students on 19.05.2023..
-//
+
 
 import SwiftUI
 

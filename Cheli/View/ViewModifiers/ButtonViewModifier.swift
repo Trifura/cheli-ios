@@ -1,9 +1,4 @@
-//
-//  ButtonViewModifier.swift
-//  Cheli
-//
-//  Created by Benjamin Sabo on 27.04.2023..
-//
+
 
 import SwiftUI
 

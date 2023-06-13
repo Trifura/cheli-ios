@@ -1,8 +1,3 @@
-//
-//  UserStore.swift
-//  Treblle v2
-//
-
 
 import SwiftUI
 

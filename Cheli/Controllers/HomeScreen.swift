@@ -1,8 +1,3 @@
-//
-//  HomeScreen.swift
-//  Cheli
-//
-
 
 import SwiftUI
 
@@ -13,6 +8,7 @@ struct HomeScreen: View {
     @State private var isCommentScreenPresented = false 
     @StateObject var viewModel: FeedViewModel = FeedViewModel()
     @EnvironmentObject var userStore: UserStore
+    @State private var isImageViewPresented = false
     
     
     var body: some View {
@@ -59,15 +55,24 @@ struct HomeScreen: View {
     @ViewBuilder
     func CheliItemView(icon: String, title: String, finished: Bool, fullName: String, updatedAt: DateFormat, color: String, initials: String, id: String) -> some View {
         VStack(alignment: .leading, spacing: 10){
-            Rectangle()
-                .fill(Color(hex: color))
-                .frame(height: 140)
-                .padding(.horizontal, -16)
-                .padding(.top, -16)
-                .overlay {
-                    Text(icon)
-                        .font(.system(size: 48))
-                }
+            Button {
+                isImageViewPresented = true
+            } label: {
+                Rectangle()
+                    .fill(Color(hex: color))
+                    .frame(height: 140)
+                    .padding(.horizontal, -16)
+                    .padding(.top, -16)
+                    .overlay {
+                        Text(icon)
+                            .font(.system(size: 48))
+                    }
+                
+            }
+            .sheet(isPresented: $isImageViewPresented) {
+                ImageView()
+            }
+            
             
             Text(title)
                 .foregroundColor(Color("dark4"))
@@ -87,14 +92,14 @@ struct HomeScreen: View {
                 MemberView(id: id, fullName: fullName, initials: initials)
                 Spacer()
                 Button(action: {
-                     //button action povezati sa apijem
-                     is_liked.toggle()
-                 }) {
-                     //promijeniti sliku na liked
-                     Image(is_liked ? "like_selected" : "like")
-     
-                 }
-                 .padding(.trailing, 7)
+                    //button action povezati sa apijem
+                    is_liked.toggle()
+                }) {
+                    //promijeniti sliku na liked
+                    Image(is_liked ? "like_selected" : "like")
+                    
+                }
+                .padding(.trailing, 7)
                 
                 Button(action: {
                     isCommentScreenPresented = true
@@ -112,26 +117,26 @@ struct HomeScreen: View {
 }
 
 func CheliActiveChallenge(viewModel: FeedViewModel) -> some
-        View {
-            VStack(alignment: .leading, spacing: 10){
-                Rectangle()
-                //TODO Gradient
-                    .fill(LinearGradient(gradient: Gradient(colors: [Color.purple, Color.purple.opacity(0.7)]), startPoint: .top, endPoint: .bottom))
-                    .overlay(
-                        Image("active_feed_background")
-                        )
-                    .frame(height: 250)
-                    .mask {
-                        RoundedRectangle(cornerRadius: 16)
-                    }
-                    .overlay {
-                        ActiveView(myCheli: viewModel.myCheli ?? CheliPost(data: [:]))
-                            .padding(.horizontal, 28.0)
-                            .padding(.top, 48.0)
-                            .padding(.bottom, 42.0)
-                    }
+View {
+    VStack(alignment: .leading, spacing: 10){
+        Rectangle()
+        //TODO Gradient
+            .fill(LinearGradient(gradient: Gradient(colors: [Color.purple, Color.purple.opacity(0.7)]), startPoint: .top, endPoint: .bottom))
+            .overlay(
+                Image("active_feed_background")
+            )
+            .frame(height: 250)
+            .mask {
+                RoundedRectangle(cornerRadius: 16)
             }
-        }
+            .overlay {
+                ActiveView(myCheli: viewModel.myCheli ?? CheliPost(data: [:]))
+                    .padding(.horizontal, 28.0)
+                    .padding(.top, 48.0)
+                    .padding(.bottom, 42.0)
+            }
+    }
+}
 
 struct HomeScreen_Previews: PreviewProvider {
     static var previews: some View {

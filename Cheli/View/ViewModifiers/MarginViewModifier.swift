@@ -1,9 +1,4 @@
-//
-//  ButtonWhiteViewModifier.swift
-//  Cheli
-//
-//  Created by Benjamin Sabo on 28.04.2023..
-//
+
 
 import SwiftUI
 

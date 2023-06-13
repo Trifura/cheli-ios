@@ -1,9 +1,4 @@
-//
-//  AddCommentView.swift
-//  Cheli
-//
-//  Created by Students on 24.05.2023..
-//
+
 
 import SwiftUI
 

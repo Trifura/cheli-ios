@@ -1,5 +1,3 @@
-//
-//  NetworkManager.swift
 
 
 import SwiftUI

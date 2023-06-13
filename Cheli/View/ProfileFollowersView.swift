@@ -1,7 +1,4 @@
-//
-//  ProfileFollowersView.swift
-//  Cheli
-//
+
 
 import SwiftUI
 

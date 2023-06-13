@@ -1,9 +1,4 @@
-//
-//  TitleFindView.swift
-//  Cheli
-//
-//  Created by Students on 08.05.2023..
-//
+
 
 import SwiftUI
 

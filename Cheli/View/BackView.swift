@@ -1,9 +1,3 @@
-//
-//  BackView.swift
-//  Cheli
-//
-//  Created by Benjamin Sabo on 30.04.2023..
-//
 
 import SwiftUI
 

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		52C3650E2A3227BA00666FBD /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C3650D2A3227BA00666FBD /* ImagePickerView.swift */; };
+		52C365162A391F9700666FBD /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C365152A391F9700666FBD /* ImageView.swift */; };
 		52D471132A1A9096003846AD /* ConfirmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D471122A1A9096003846AD /* ConfirmView.swift */; };
 		52D471152A1D40AF003846AD /* ButtonLoginRegisterModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D471142A1D40AF003846AD /* ButtonLoginRegisterModifier.swift */; };
 		930A9CD729F6B21500F22AEA /* CheliApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930A9CD629F6B21500F22AEA /* CheliApp.swift */; };
@@ -59,6 +60,7 @@
 
 /* Begin PBXFileReference section */
 		52C3650D2A3227BA00666FBD /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
+		52C365152A391F9700666FBD /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		52D471122A1A9096003846AD /* ConfirmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmView.swift; sourceTree = "<group>"; };
 		52D471142A1D40AF003846AD /* ButtonLoginRegisterModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonLoginRegisterModifier.swift; sourceTree = "<group>"; };
 		930A9CD329F6B21500F22AEA /* Cheli.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cheli.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -221,6 +223,7 @@
 			children = (
 				930A9CEC29F6B7AF00F22AEA /* ViewModifiers */,
 				930A9CF129F6BC6900F22AEA /* TitleView.swift */,
+				52C365152A391F9700666FBD /* ImageView.swift */,
 				EED7E6CE2A010469004FBA9B /* TitleProfileView.swift */,
 				AFA4A4A92A0953CB00BAF566 /* TitleFindView.swift */,
 				AFCACBCD2A0551AC00BAE4EA /* BackView.swift */,
@@ -338,6 +341,7 @@
 				930F9AD82A03DFC200A856A6 /* FeedViewModel.swift in Sources */,
 				AFCACBD32A05521300BAE4EA /* LoginView.swift in Sources */,
 				AFCACBCB2A05516A00BAE4EA /* MarginViewModifier.swift in Sources */,
+				52C365162A391F9700666FBD /* ImageView.swift in Sources */,
 				AFCACBC82A05516A00BAE4EA /* HeaderTextViewModifier.swift in Sources */,
 				AFCACBCE2A0551AC00BAE4EA /* BackView.swift in Sources */,
 				EE4C81E52A02B7B900653103 /* ProfileChallengeCompletedView.swift in Sources */,

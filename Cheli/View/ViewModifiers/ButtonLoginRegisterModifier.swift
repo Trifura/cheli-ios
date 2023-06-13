@@ -1,9 +1,4 @@
-//
-//  ButtonLogin&RegisterModifier.swift
-//  Cheli
-//
-//  Created by Benjamin Sabo on 23.05.2023..
-//
+
 
 import SwiftUI
 

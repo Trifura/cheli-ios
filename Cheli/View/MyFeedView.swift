@@ -1,9 +1,4 @@
-//
-//  MyFeedView.swift
-//  Cheli
-//
-//  Created by Temp Guest on 01.05.2023..
-//
+
 
 import SwiftUI
 

@@ -1,7 +1,3 @@
-//
-//  ProfileScreen.swift
-//  Cheli
-//
 
 
 import SwiftUI

@@ -1,7 +1,4 @@
-//
-//  TitleView.swift
-//  Cheli
-//
+
 
 import SwiftUI
 

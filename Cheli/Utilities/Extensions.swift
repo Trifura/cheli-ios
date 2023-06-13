@@ -1,7 +1,3 @@
-//
-//  Extensions.swift
-//  Cheli
-//
 
 
 import Foundation

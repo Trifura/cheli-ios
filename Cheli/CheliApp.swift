@@ -1,7 +1,3 @@
-//
-//  CheliApp.swift
-//  Cheli
-//
 
 
 import SwiftUI

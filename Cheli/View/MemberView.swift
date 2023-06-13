@@ -1,7 +1,3 @@
-//
-//  MemberView.swift
-//  Cheli
-//
 
 import SwiftUI
 

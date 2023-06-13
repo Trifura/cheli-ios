@@ -1,7 +1,4 @@
-//
-//  ActiveView.swift
-//  Cheli
-//
+
 
 import SwiftUI
 

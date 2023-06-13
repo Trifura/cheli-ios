@@ -1,7 +1,3 @@
-//
-//  FeedViewModel.swift
-//  Cheli
-//
 
 
 import Foundation
