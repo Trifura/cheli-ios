@@ -2,8 +2,6 @@
 import SwiftUI
 
 struct HomeScreen: View {
-    //var colors : [Color] = [.purple, .red, .yellow, .blue]
-    //var emoji : [String] = ["☃️", "⚽️", "💕", "🌸"]
     @State var is_liked: Bool = false
     @State private var isCommentScreenPresented = false 
     @StateObject var viewModel: FeedViewModel = FeedViewModel()
@@ -25,12 +23,8 @@ struct HomeScreen: View {
                         LazyVStack(spacing: 20) {
                             //start
                             ForEach(viewModel.feedItems, id: \.self) { item in
-                                CheliItemView(icon: item.activeCheli.cheli.icon, title: item.activeCheli.cheli.title, finished: item.activeCheli.isCompleted, fullName: item.fullName, updatedAt: item.activeCheli.updatedAt, color: item.activeCheli.cheli.color,initials:  item.initials, id: item.id)
+                                CheliItemView(icon: item.activeCheli.cheli.icon, title: item.activeCheli.cheli.title, finished: item.activeCheli.isCompleted, fullName: item.fullName, updatedAt: item.activeCheli.updatedAt, color: item.activeCheli.cheli.color,initials:  item.initials, id: item.id, imageUrl: item.activeCheli.cheli.imageUrl)
                             }
-                            
-                            /* ForEach(0..<10) { _ in
-                             CheliItemView(icon: emoji.randomElement() ?? "🥰", title: "Build a Snowman With a Bunch of Your Friends In an Hour!!!")
-                             } */
                         }
                         
                     }
@@ -53,21 +47,35 @@ struct HomeScreen: View {
     }
     
     @ViewBuilder
-    func CheliItemView(icon: String, title: String, finished: Bool, fullName: String, updatedAt: DateFormat, color: String, initials: String, id: String) -> some View {
+    func CheliItemView(icon: String, title: String, finished: Bool, fullName: String, updatedAt: DateFormat, color: String, initials: String, id: String, imageUrl: String) -> some View {
+        var prikaz = imageUrl == "ema" || imageUrl == "nikol" || imageUrl == "pata"
         VStack(alignment: .leading, spacing: 10){
             Button {
                 isImageViewPresented = true
             } label: {
                 Rectangle()
-                    .fill(Color(hex: color))
-                    .frame(height: 140)
+                    .fill(prikaz ? Color("grey500") : Color(hex: color))
+                    .frame(height: prikaz ? 340 : 140)
+                    //.frame(height: 340)
                     .padding(.horizontal, -16)
                     .padding(.top, -16)
+                    //.padding(.horizontal, 0)
+                    //.padding(.top, 0)
                     .overlay {
-                        Text(icon)
-                            .font(.system(size: 48))
+                        if imageUrl == "ema" {
+                            Image("retard")
+                            .resizable()
+                        } else if imageUrl == "nikol" {
+                            Image("retard2")
+                            .resizable()
+                        } else if imageUrl == "pata" {
+                            Image("retard3")
+                            .resizable()
+                        } else {
+                            Text(icon)
+                                .font(.system(size: 48))
+                        }
                     }
-                
             }
             .sheet(isPresented: $isImageViewPresented) {
                 ImageView()
@@ -113,6 +121,7 @@ struct HomeScreen: View {
         }
         
         .modifier(ContainerViewModifier())
+        .padding(.all, 0)
     }
 }
 

@@ -1,10 +1,9 @@
-
-
 import SwiftUI
 
 struct AddCommentView: View {
     let initials: String
     @State private var commentText: String = ""
+    @Binding var showComment: Bool
     
     var body: some View {
         VStack {
@@ -33,6 +32,7 @@ struct AddCommentView: View {
                         Button(action: {
                             // Handle comment submission
                             submitComment()
+                            showComment = true
                         }) {
                             Text("Post")
                                 .foregroundColor(.blue)
@@ -59,8 +59,8 @@ struct AddCommentView: View {
 }
 
 
-struct AddCommentView_Previews: PreviewProvider {
+/*struct AddCommentView_Previews: PreviewProvider {
     static var previews: some View {
         AddCommentView(initials: "JD")
     }
-}
+}*/

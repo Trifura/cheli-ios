@@ -47,7 +47,7 @@ struct ProfileFollowersView: View {
                 Button(action: {
                     is_following.toggle()
                 }) {
-                    Text(is_following ? "Following" : "Follow")
+                    Text(is_following ? "Sent" : "Follow")
                         .font(.system(size: 14))
                         .fontWeight(.semibold)
                         .foregroundColor(is_following ? Color("dark4") : .white)

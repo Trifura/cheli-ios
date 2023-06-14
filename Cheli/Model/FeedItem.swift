@@ -57,6 +57,7 @@ struct Cheli: Codable, Hashable {
     var updatedAt: DateFormat
     var icon: String
     var color: String
+    var imageUrl: String
     
     init(data: [String: Any]) {
         uuid = data["uuid"] as? String ?? ""
@@ -66,6 +67,7 @@ struct Cheli: Codable, Hashable {
         updatedAt = DateFormat(data: data["created_at"] as? [String: Any] ?? [:])
         icon = data["icon"] as? String ?? ""
         color = data["color"] as? String ?? ""
+        imageUrl = data["imageUrl"] as? String ?? ""
     }
 }
 

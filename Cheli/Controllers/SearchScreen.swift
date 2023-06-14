@@ -21,6 +21,12 @@ struct SearchScreen: View {
                 if searchResults.isEmpty {
                     PeopleView()
                 } else {
+                    if searchState.searchText == "" {
+                        Text("People you may know")
+                            .font(.system(size: 25))
+                            .fontWeight(.bold)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                    }
                     ForEach(searchResults, id: \.self) { user in
                         ProfileFollowersView(fullName: user.fullName, username: user.username, initials: user.initials, showSignOutButton: false)
                             .padding(.bottom, 14)

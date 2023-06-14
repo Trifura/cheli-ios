@@ -9,14 +9,6 @@ struct CheliApp: App {
 
     var body: some Scene {
         WindowGroup {
-//            if userStore.isLogged {
-//                NavigationView()
-//                .environmentObject(userStore)
-//            } else {
-//                LandingView()
-//                    .environmentObject(userStore)
-//            }
-
             NavigationView()
                 .environmentObject(userStore)
                 .fullScreenCover(isPresented: !$userStore.isLogged) {

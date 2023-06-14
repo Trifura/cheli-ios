@@ -18,12 +18,8 @@ struct FollowRequestsView: View {
                     AcceptFollowRequests(followRequest: followRequest)
                         .padding(.bottom, 24)
                 }
-
                 
                 /*AcceptFollowRequests(initials: "EK", fullName: "Ema Kurevija", username: "emica03")
-                    .padding(.bottom, 24)
-                
-                AcceptFollowRequests(initials: "PV", fullName: "Patricia Vujnovac", username: "pataosk")
                     .padding(.bottom, 24)
                 
                 AcceptFollowRequests(initials: "NŠ", fullName: "Nikol Šarac", username: "nikidgo")

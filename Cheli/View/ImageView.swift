@@ -12,6 +12,7 @@ struct ImageView: View {
                 VStack {
                     Spacer()
                     Color.green
+                    //Image()
                         .frame(height: min(geometry.size.width, geometry.size.height))
                     Spacer()
                 }
