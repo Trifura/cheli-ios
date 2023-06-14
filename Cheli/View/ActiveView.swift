@@ -1,29 +1,26 @@
-
-
 import SwiftUI
+import UIKit
 
 struct ActiveView: View {
-    var myCheli : CheliPost
+    var myCheli: CheliPost
     @State var is_completed: Bool = false
     @StateObject var viewModel: FeedViewModel = FeedViewModel()
     @EnvironmentObject var userStore: UserStore
-    
-    
+
     @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
     @State private var selectedImage: UIImage?
     @State private var isImagePickerDisplay = false
-    
+
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
-            
             Text(myCheli.timeLeft)
                 .font(.system(size: 14))
                 .fontWeight(.semibold)
                 .foregroundColor(Color("primary500"))
                 .frame(width: 116, height: 32)
-                .background(.white)
+                .background(Color.white)
                 .cornerRadius(100)
-            
+
             Text(myCheli.cheli.title)
                 .font(.system(size: 20))
                 .fontWeight(.bold)
@@ -31,7 +28,7 @@ struct ActiveView: View {
                 .lineLimit(nil)
                 .fixedSize(horizontal: false, vertical: true)
                 .multilineTextAlignment(.leading)
-            
+
             Text(myCheli.cheli.description)
                 .font(.system(size: 14))
                 .lineLimit(nil)
@@ -40,13 +37,12 @@ struct ActiveView: View {
                 .fontWeight(.semibold)
                 .foregroundColor(.white)
                 .padding(.top, -10)
-            
-            
+
             Button(action: {
                 viewModel.completeCheli(challengeId: myCheli.id, userToken: userStore.userToken)
                 is_completed = true
                 sourceType = .camera // Set the sourceType to .camera
-                
+
                 isImagePickerDisplay = true
             }) {
                 Text(is_completed || myCheli.isCompleted ? "Completed" : "Complete")
@@ -67,7 +63,7 @@ struct ActiveView: View {
                 is_completed = true
             }
         }
-        .frame(maxWidth: .infinity,  alignment: .leading)
+        .frame(maxWidth: .infinity, alignment: .leading)
     }
 }
 

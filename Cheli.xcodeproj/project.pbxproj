@@ -223,6 +223,7 @@
 			children = (
 				930A9CEC29F6B7AF00F22AEA /* ViewModifiers */,
 				930A9CF129F6BC6900F22AEA /* TitleView.swift */,
+				52C3650D2A3227BA00666FBD /* ImagePickerView.swift */,
 				52C365152A391F9700666FBD /* ImageView.swift */,
 				EED7E6CE2A010469004FBA9B /* TitleProfileView.swift */,
 				AFA4A4A92A0953CB00BAF566 /* TitleFindView.swift */,
@@ -253,7 +254,6 @@
 				AFCACBC62A05516A00BAE4EA /* MarginViewModifier.swift */,
 				930A9CF329F6BF6900F22AEA /* ContainerViewModifier.swift */,
 				52D471142A1D40AF003846AD /* ButtonLoginRegisterModifier.swift */,
-				52C3650D2A3227BA00666FBD /* ImagePickerView.swift */,
 			);
 			path = ViewModifiers;
 			sourceTree = "<group>";
